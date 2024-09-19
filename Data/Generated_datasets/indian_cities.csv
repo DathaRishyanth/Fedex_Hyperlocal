@@ -1,0 +1,11 @@
+City_id,Name,Center_latitude,Center_longitude,Radius,District,State,Country,Population
+1,Mumbai,19.076,72.8777,10,Mumbai,Maharashtra,India,20411000
+2,Delhi,28.7041,77.1025,15,New Delhi,Delhi,India,31870000
+3,Bangalore,12.9716,77.5946,12,Bangalore,Karnataka,India,12000000
+4,Hyderabad,17.385,78.4867,10,Hyderabad,Telangana,India,10000000
+5,Chennai,13.0827,80.2707,10,Chennai,Tamil Nadu,India,11000000
+6,Kolkata,22.5726,88.3639,8,Kolkata,West Bengal,India,14900000
+7,Ahmedabad,23.0225,72.5714,10,Ahmedabad,Gujarat,India,8200000
+8,Pune,18.5204,73.8567,10,Pune,Maharashtra,India,7200000
+9,Jaipur,26.9124,75.7873,12,Jaipur,Rajasthan,India,3500000
+10,Lucknow,26.8467,80.9462,10,Lucknow,Uttar Pradesh,India,3300000

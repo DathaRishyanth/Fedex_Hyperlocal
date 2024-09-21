@@ -1,0 +1,6 @@
+,id,name,weight_carrying_capacity,container_space_length,container_space_breadth,container_space_height
+0,1,Vehicle_Type_1,1671.91,2.98,7.46,6.33
+1,2,Vehicle_Type_2,1742.63,9.75,9.32,7.72
+2,3,Vehicle_Type_3,617.89,3.76,2.84,7.62
+3,4,Vehicle_Type_4,1743.35,5.07,7.98,8.95
+4,5,Vehicle_Type_5,875.16,9.57,8.27,1.95

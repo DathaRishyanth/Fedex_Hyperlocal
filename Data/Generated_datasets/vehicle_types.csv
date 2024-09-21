@@ -1,6 +1,0 @@
-Id,Name,Weight_Carrying_Capacity,Container_Space_Length,Container_Space_Breadth,Container_Space_Height
-1,Bike,50kg,50cm,30cm,30cm
-2,Small Van,200kg,100cm,100cm,80cm
-3,Large Van,500kg,200cm,150cm,150cm
-4,Truck,1000kg,500cm,300cm,250cm
-5,Mini Truck,750kg,300cm,200cm,200cm

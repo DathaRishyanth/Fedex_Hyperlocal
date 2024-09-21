@@ -1,5 +1,5 @@
 from dataclasses import dataclass
-from typing import List, Optional
+from typing import List, Optional,Tuple
 from datetime import datetime
 
 
@@ -14,7 +14,7 @@ class City:
     state: str
     country: str
     population: int
-
+    list_of_operators:List[int]
 
 @dataclass
 class Operator:
@@ -25,22 +25,23 @@ class Operator:
     contact_person_name: str
     registered_name: str
     registered_address: str
-    maximum_order_per_vehicle: int
     operates_in: List[int]  # List of city IDs where the operator operates
-    operating_hours: tuple[int, int]  # (start_hour, end_hour)
-
+    start_time : datetime
+    end_time : datetime
+    list_of_stores:List[int]
 
 @dataclass
 class Store:
-    store_id: int
-    operator_id: int
+    store_id: int   # unique id for each store
+    operator_id: int # operator for that store
     city_id: int
     location_latitude: float
     location_longitude: float
     contact_email: str
     contact_mobile: str
-    operating_hours: tuple[int, int]  # (start_hour, end_hour)
-    maximum_weight_capacity: Optional[float]  # Capacity in kilograms, if applicable
+    start_time : datetime
+    end_time : datetime  # (start_hour, end_hour)
+    inventory_capacity: Optional[float]  # Capacity in kilograms, if applicable
 
 
 @dataclass
@@ -94,16 +95,7 @@ class Driver:
     aadhar: str
     dl_number: str
     dl_for_vehicle_types: List[int]  # List of vehicle type IDs the driver is authorized to operate
-
-
-@dataclass
-class VehicleOperator:
-    id: int
-    name: str
-    pan: str
-    aadhar: str
-    city: str
-    address: str
+    Available : bool
     rating: Optional[float] = None  # Optional rating for the vehicle operator
 
 
@@ -142,9 +134,9 @@ class AvailableDriver:
     city_id: str
     vehicle_id: str
     current_status: str
-    availability_time: Optional[datetime] = None  # Time when the driver is next available
     max_delivery_radius: float
     pending_orders_count: int
+    availability_time: Optional[datetime] = None  # Time when the driver is next available
 
 
 @dataclass

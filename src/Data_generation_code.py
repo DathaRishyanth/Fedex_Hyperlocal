@@ -6,7 +6,7 @@ from models import *  # Assuming models contain all necessary classes
 from datetime import datetime, timedelta
 
 # Constants for configuration
-NUM_CITIES = 10
+NUM_CITIES = 25
 NUM_OPERATORS = 10
 NUM_STORES_PER_OPERATOR = 10
 NUM_CUSTOMERS = 10
@@ -63,7 +63,7 @@ def generate_operators():
             contact_person_name=f"Person_{i + 1}",
             registered_name=f"Registered_Operator_{i + 1}",
             registered_address=f"Address_{i + 1}",
-            operates_in=random.sample(range(1, NUM_CITIES + 1), random.randint(1, NUM_CITIES // 2)),
+            operates_in=random.sample(range(1, NUM_CITIES + 1),10),
             start_time=datetime.combine(datetime.today(), datetime.strptime("09:00", "%H:%M").time()),
             end_time=datetime.combine(datetime.today(), datetime.strptime("21:00", "%H:%M").time()),
             list_of_stores=[]
@@ -240,6 +240,12 @@ items_df = pd.DataFrame([vars(item) for item in items_for_inventory])
 customers_df = pd.DataFrame([vars(customer) for customer in customers])
 vehicles_df = pd.DataFrame([vars(vehicle) for vehicle in vehicles])
 vehicle_types_df = pd.DataFrame([vars(vehicle_type) for vehicle_type in vehicle_types])
+available_drivers_df=pd.DataFrame()
+requests_df=pd.DataFrame()
+active_requests_df=pd.DataFrame()
+unserviced_requests_df=pd.DataFrame()
+completed_requests_df=pd.DataFrame()
+
 
 # Save data to CSV files
 operators_df.to_csv("../datasets/Generated_datasets/operators.csv", index=True)
@@ -248,6 +254,10 @@ drivers_df.to_csv("../datasets/Generated_datasets/drivers.csv", index=True)
 items_df.to_csv("../datasets/Generated_datasets/items_for_inventory.csv", index=True)
 customers_df.to_csv("../datasets/Generated_datasets/customers.csv", index=True)
 vehicles_df.to_csv("../datasets/Generated_datasets/vehicles.csv", index=True)
-vehicle_types_df.to_csv("../datasets/Generated_datasets/vehicle_types.csv", index=True)
+available_drivers_df.to_csv("../datasets/Generated_datasets/available_drivers.csv", index=True)
+requests_df.to_csv("../datasets/Generated_datasets/requests.csv", index=True)
+active_requests_df.to_csv("../datasets/Generated_datasets/active_requests.csv", index=True)
+unserviced_requests_df.to_csv("../datasets/Generated_datasets/unserviced_requests.csv", index=True)
+completed_requests_df.to_csv("../datasets/Generated_datasets/completed_requests.csv", index=True)
 
 print("Data has been saved to the respective CSV files.")

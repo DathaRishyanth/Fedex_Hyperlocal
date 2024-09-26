@@ -1,0 +1,11 @@
+vehicle_id,owner,driver,vehicle_operator,vehicle_type_id,number_plate,fuel_type,vehicle_status
+1,Owner_1,Driver_1,5,32,AB-10-AB-1051,Electric,Available
+2,Owner_2,Driver_2,4,10,AB-54-AB-8423,Diesel,Available
+3,Owner_3,Driver_3,8,36,AB-57-AB-8961,Petrol,In Use
+4,Owner_4,Driver_4,10,28,AB-22-AB-7040,Diesel,Available
+5,Owner_5,Driver_5,4,48,AB-63-AB-4792,Diesel,In Use
+6,Owner_6,Driver_6,5,20,AB-20-AB-4446,Petrol,In Use
+7,Owner_7,Driver_7,5,49,AB-97-AB-3706,Diesel,Available
+8,Owner_8,Driver_8,9,31,AB-61-AB-6178,Electric,Available
+9,Owner_9,Driver_9,2,26,AB-77-AB-7741,Diesel,In Use
+10,Owner_10,Driver_10,8,20,AB-47-AB-6862,Diesel,Under Maintenance

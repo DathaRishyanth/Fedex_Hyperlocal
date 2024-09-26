@@ -1,0 +1,6 @@
+item_id,name,item_type,weight,dimensions,special_handling_requirements
+1,Item_1,Furniture,5.16,"(0.59, 0.85, 0.77)",Fragile
+2,Item_2,Furniture,4.1,"(0.58, 0.68, 0.23)",Fragile
+3,Item_3,Clothing,7.5,"(0.86, 0.91, 0.54)",Perishable
+4,Item_4,Furniture,2.35,"(0.77, 0.27, 0.72)",Perishable
+5,Item_5,Furniture,6.11,"(0.56, 0.98, 0.62)",Perishable

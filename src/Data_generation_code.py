@@ -112,11 +112,14 @@ def generate_customers():
     for i in range(1, NUM_CUSTOMERS + 1):
         city_id = random.choice(range(1, NUM_CITIES + 1))
         city = city_list[city_id - 1]
+        distance = random.uniform(0, city.radius)
+        angle = random.uniform(0, 360)
+        destination = geodesic(kilometers=distance).destination(Point(city.center_latitude, city.center_longitude), angle)
         customer = Customer(
             customer_id=i,
             city_id=city_id,
-            location_latitude=random.uniform(city.center_latitude - city.radius, city.center_latitude + city.radius),
-            location_longitude=random.uniform(city.center_longitude - city.radius, city.center_longitude + city.radius),
+            location_latitude=destination.latitude,
+            location_longitude=destination.longitude,
             address=f"Address_{i}",
             preferred_delivery_window=(f"{random.randint(1, 12)} AM", f"{random.randint(1, 12)} PM")
         )
@@ -231,6 +234,18 @@ def generate_shipment_requests():
 
 shipment_requests = generate_shipment_requests()  # Populate shipment requests list
 
+def Available_drivers():
+    available_drivers = []
+    for driver in drivers:
+        if driver.Available:
+            available_drivers.append(driver)
+    return available_drivers
+
+available_drivers = Available_drivers()  # Populate available drivers list
+
+
+
+
 # Save all generated data to respective CSV files
 city_df.to_csv("../datasets/Generated_datasets/indian_cities.csv", index=True)
 operators_df = pd.DataFrame([vars(operator) for operator in operators])
@@ -240,8 +255,8 @@ items_df = pd.DataFrame([vars(item) for item in items_for_inventory])
 customers_df = pd.DataFrame([vars(customer) for customer in customers])
 vehicles_df = pd.DataFrame([vars(vehicle) for vehicle in vehicles])
 vehicle_types_df = pd.DataFrame([vars(vehicle_type) for vehicle_type in vehicle_types])
-available_drivers_df=pd.DataFrame()
-requests_df=pd.DataFrame()
+requests_df = pd.DataFrame([vars(request) for request in shipment_requests])
+available_drivers_df=pd.DataFrame([vars(driver) for driver in available_drivers])
 active_requests_df=pd.DataFrame()
 unserviced_requests_df=pd.DataFrame()
 completed_requests_df=pd.DataFrame()

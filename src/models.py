@@ -88,6 +88,27 @@ class VehicleType:
     container_space_breadth: float
     container_space_height: float
 
+@dataclass
+class VehicleOperator:
+    vehicle_operator_id: int
+    Name: str
+    PAN: str
+    Aadhar:str
+    City:str
+    Address:str 
+    Rating:float
+
+@dataclass
+class VehicleOwner:
+    vehicle_owner_Id : int
+    Name : str
+    PAN : str
+    Aadhar :str
+    City:str
+    Address :str
+    Rating:float
+
+
 
 @dataclass
 class Driver:
@@ -150,6 +171,14 @@ class ActiveOrder:
     delivery_window: Optional[str] = None  # e.g., "9 AM - 12 PM"
 
 @dataclass
+class vehicle_operator:
+    vehicle_operator_id: int
+    name : str
+    PAN: str
+    Aadhar: str
+    Adress: str
+    Rating: float
+
 
 class inventory_id:
     id: int

@@ -1,6 +1,0 @@
-item_id,name,item_type,weight,dimensions,special_handling_requirements
-1,Item_1,Food,5.18,"(0.52, 0.61, 0.15)",Hazardous
-2,Item_2,Books,4.78,"(0.87, 0.64, 0.6)",Hazardous
-3,Item_3,Food,3.54,"(0.9, 0.26, 0.82)",Fragile
-4,Item_4,Electronics,8.84,"(0.66, 0.82, 0.14)",Fragile
-5,Item_5,Food,3.57,"(0.93, 0.59, 0.28)",Fragile

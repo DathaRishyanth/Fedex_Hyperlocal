@@ -38,8 +38,11 @@ def generate_data(data):
         NUM_CUSTOMERS = int(data[3].strip())
         NUM_VEHICLES = int(data[4].strip())
         NUM_VEHICLE_TYPES = int(data[5].strip())
-        NUM_ITEMS_FOR_INVENTORY = int(data[6].strip())
+        NUM_ITEM_TYPES_FOR_INVENTORY = int(data[6].strip())
         NUM_SHIPMENT_REQUESTS = int(data[7].strip())
+        NUM_VEHICLE_OPERATOS = int(data[8].strip())
+        NUM_VEHICLE_OWNERS = int(data[9].strip())
+        
 
         print(f"Generating data for Instance {Index_Of_Config} with the following parameters:")
         print(f"NUM_CITIES: {NUM_CITIES}")
@@ -48,8 +51,11 @@ def generate_data(data):
         print(f"NUM_CUSTOMERS: {NUM_CUSTOMERS}")
         print(f"NUM_VEHICLES: {NUM_VEHICLES}")
         print(f"NUM_VEHICLE_TYPES: {NUM_VEHICLE_TYPES}")
-        print(f"NUM_ITEMS_FOR_INVENTORY: {NUM_ITEMS_FOR_INVENTORY}")
+        print(f"NUM_ITEM_TYPES_FOR_INVENTORY: {NUM_ITEM_TYPES_FOR_INVENTORY}")
         print(f"NUM_SHIPMENT_REQUESTS: {NUM_SHIPMENT_REQUESTS}")
+        print(f"NUM_VEHICLE_OPERATOS: {NUM_VEHICLE_OPERATOS}")
+        print(f"NUM_VEHICLE_OWNERS: {NUM_VEHICLE_OWNERS}")
+
 
 
         # Lists to hold generated data
@@ -88,6 +94,7 @@ def generate_data(data):
         def generate_operators():
             """Generate operator data with random attributes."""
             operators = []
+
             for i in range(NUM_OPERATORS):
                 operator = Operator(
                     operator_id=i + 1,
@@ -152,6 +159,8 @@ def generate_data(data):
             customers = []
             for i in range(1, NUM_CUSTOMERS + 1):
                 city_id = random.choice(range(1, NUM_CITIES + 1))
+                while(city_list[city_id-1].list_of_operators == []):
+                    city_id = random.choice(range(1, NUM_CITIES + 1))
                 city = city_list[city_id - 1]
                 distance = random.uniform(0, city.radius)
                 angle = random.uniform(0, 360)
@@ -192,7 +201,7 @@ def generate_data(data):
             """Generate vehicle type data with random attributes."""
             vehicle_type_names=["two wheeler","three wheeler closed","three wheeler open","four wheeler closed","four wheeler open"]
             vehicle_types = []
-            for i in range(1, NUM_VEHICLE_TYPES + 1):
+            for i in range(1, NUM_VEHICLE_TYPES+1 ):
                 vehicle_type = VehicleType(
                     id=i,
                     name=vehicle_type_names[i-1],
@@ -205,6 +214,40 @@ def generate_data(data):
             return vehicle_types
 
         vehicle_types = generate_vehicle_types()  # Populate vehicle types list
+
+        def generate_vehicle_operators():
+            vehicle_operators = []
+            for i in range(1,NUM_VEHICLE_OPERATOS+1):
+                vehicle_operator = VehicleOperator(
+                    vehicle_operator_id=i,
+                    Name = f"vehicle_operator_{i}", 
+                    PAN = f"ABCDE{random.randint(1000,9999)}F",
+                    Aadhar = f"{random.randint(1000,9999)} {random.randint(1000,9999)} {random.randint(1000,9999)}",
+                    City = city_list[random.randint(0,NUM_CITIES-1)].name,
+                    Address = f"Address_{i}",
+                    Rating = round(random.uniform(1,5),2)
+                )
+                vehicle_operators.append(vehicle_operator)
+            return vehicle_operators
+        
+        vehicle_operators = generate_vehicle_operators() #Populate vehicle operators list
+
+        def generate_vehicle_owners():
+            vehicle_owners = []
+            for i in range(1,NUM_VEHICLE_OWNERS+1):
+                vehicle_owner = VehicleOwner(
+                    vehicle_owner_Id = i,
+                    Name = f"vehicle_owner_{i}",
+                    PAN = f"ABCDE{random.randint(1000,9999)}F",
+                    Aadhar = f"{random.randint(1000,9999)} {random.randint(1000,9999)} {random.randint(1000,9999)}",
+                    City = city_list[random.randint(0,NUM_CITIES-1)].name,
+                    Address = f"Address_{i}",
+                    Rating = round(random.uniform(1,5),2)
+                )
+                vehicle_owners.append(vehicle_owner)
+            return vehicle_owners
+
+        vehicle_owners = generate_vehicle_owners() #Populate vehicle owners list
 
         def generate_drivers():
             """Generate driver data with random attributes."""
@@ -228,10 +271,10 @@ def generate_data(data):
 
         drivers = generate_drivers()  # Populate drivers list
 
-        def generate_items_for_inventory():
+        def generate_item_type_for_inventory():
             """Generate inventory items with random attributes."""
             items = []
-            for i in range(1, NUM_ITEMS_FOR_INVENTORY + 1):
+            for i in range(1, NUM_ITEM_TYPES_FOR_INVENTORY + 1):
                 item = InventoryItem(
                     item_id=i,
                     name=f"Item_{i}",
@@ -243,7 +286,7 @@ def generate_data(data):
                 items.append(item)
             return items
 
-        items_for_inventory = generate_items_for_inventory()  # Populate inventory items list
+        item_type_for_inventory = generate_item_type_for_inventory()  # Populate inventory items list
 
         
             
@@ -271,7 +314,7 @@ def generate_data(data):
                     vehicle_id=random.choice(range(1, NUM_VEHICLES + 1)),
                     pickup_time=pickup_time,
                     delivery_time=delivery_time,
-                    items_shipped=random.sample(range(1, NUM_ITEMS_FOR_INVENTORY + 1), random.randint(1, 5)),
+                    items_shipped=random.sample(range(1, NUM_ITEM_TYPES_FOR_INVENTORY + 1), random.randint(1, 5)),
                     shipment_value=random.uniform(100, 1000),
                     payment_status=random.choice(["Paid", "Unpaid"])
                 )
@@ -297,12 +340,14 @@ def generate_data(data):
         operators_df = pd.DataFrame([vars(operator) for operator in operators])
         stores_df = pd.DataFrame([vars(store) for store in stores])
         drivers_df = pd.DataFrame([vars(driver) for driver in drivers])
-        items_df = pd.DataFrame([vars(item) for item in items_for_inventory])
+        items_df = pd.DataFrame([vars(item) for item in item_type_for_inventory])
         customers_df = pd.DataFrame([vars(customer) for customer in customers])
         vehicles_df = pd.DataFrame([vars(vehicle) for vehicle in vehicles])
         vehicle_types_df = pd.DataFrame([vars(vehicle_type) for vehicle_type in vehicle_types])
         requests_df = pd.DataFrame([vars(request) for request in shipment_requests])
         available_drivers_df=pd.DataFrame([vars(driver) for driver in available_drivers])
+        vehiclle_operators_df=pd.DataFrame([vars(vehicle_operator) for vehicle_operator in vehicle_operators])
+        vehicle_owners_df=pd.DataFrame([vars(vehicle_owner) for vehicle_owner in vehicle_owners])
         active_requests_df=pd.DataFrame()
         unserviced_requests_df=pd.DataFrame()
         completed_requests_df=pd.DataFrame()
@@ -317,7 +362,7 @@ def generate_data(data):
             operators_df.to_csv(f"{output_directory}/quick_commerce_operators.csv", index=False)
             stores_df.to_csv(f"{output_directory}/stores.csv", index=False)
             drivers_df.to_csv(f"{output_directory}/drivers.csv", index=False)
-            items_df.to_csv(f"{output_directory}/items_for_inventory.csv", index=False)
+            items_df.to_csv(f"{output_directory}/item_type_for_inventory.csv", index=False)
             customers_df.to_csv(f"{output_directory}/customers.csv", index=False)
             vehicles_df.to_csv(f"{output_directory}/vehicles.csv", index=False)
             vehicle_types_df.to_csv(f"{output_directory}/vehicle_types.csv", index=False)
@@ -326,8 +371,11 @@ def generate_data(data):
             active_requests_df.to_csv(f"{output_directory}/active_requests.csv", index=False)
             unserviced_requests_df.to_csv(f"{output_directory}/unserviced_requests.csv", index=False)
             completed_requests_df.to_csv(f"{output_directory}/completed_requests.csv", index=False)
+            vehiclle_operators_df.to_csv(f"{output_directory}/vehicle_operators.csv", index=False)
+            vehicle_owners_df.to_csv(f"{output_directory}/vehicle_owners.csv", index=False)
         except Exception as e:
             print(f"Error saving data to CSV files: {e}")
+
     
 # Generate data for each configuration
 Index_Of_Config = 1

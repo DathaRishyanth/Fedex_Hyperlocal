@@ -86,4 +86,4 @@ def verify_stores_data():
     print("Stores data verified successfully")
 
 verify_stores_data()
-
+ 

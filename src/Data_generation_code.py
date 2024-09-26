@@ -189,11 +189,12 @@ def generate_data(data):
 
         def generate_vehicle_types():
             """Generate vehicle type data with random attributes."""
+            vehicle_type_names=["two wheeler","three wheeler closed","three wheeler open","four wheeler closed","four wheeler open"]
             vehicle_types = []
             for i in range(1, NUM_VEHICLE_TYPES + 1):
                 vehicle_type = VehicleType(
                     id=i,
-                    name=f"Vehicle_Type_{i}",
+                    name=vehicle_type_names[i],
                     weight_carrying_capacity=round(random.uniform(500, 2000), 2),
                     container_space_length=round(random.uniform(1, 10), 2),
                     container_space_breadth=round(random.uniform(1, 10), 2),

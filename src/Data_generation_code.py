@@ -99,6 +99,7 @@ def generate_data(data):
                     registered_address=f"Address_{i + 1}",
                     operates_in=random.sample(range(1, NUM_CITIES + 1),10),
                     start_time=datetime.combine(datetime.today(), datetime.strptime("09:00", "%H:%M").time()),
+                    Max_number_of_orders_each_vehicle_can_take= 1,
                     end_time=datetime.combine(datetime.today(), datetime.strptime("21:00", "%H:%M").time()),
                     list_of_stores=[]
                 )
@@ -244,6 +245,9 @@ def generate_data(data):
 
         items_for_inventory = generate_items_for_inventory()  # Populate inventory items list
 
+        
+            
+
         def generate_random_time(start_time, end_time):
             """Generate a random time between start_time and end_time."""
             time_delta = end_time - start_time
@@ -310,10 +314,10 @@ def generate_data(data):
         # Save data to CSV files
         try:
             city_df.to_csv(f"{output_directory}/cities.csv", index=False)
-            operators_df.to_csv(f"{output_directory}/operators.csv", index=False)
+            operators_df.to_csv(f"{output_directory}/quick_commerce_operators.csv", index=False)
             stores_df.to_csv(f"{output_directory}/stores.csv", index=False)
             drivers_df.to_csv(f"{output_directory}/drivers.csv", index=False)
-            items_df.to_csv(f"{output_directory}/items.csv", index=False)
+            items_df.to_csv(f"{output_directory}/items_for_inventory.csv", index=False)
             customers_df.to_csv(f"{output_directory}/customers.csv", index=False)
             vehicles_df.to_csv(f"{output_directory}/vehicles.csv", index=False)
             vehicle_types_df.to_csv(f"{output_directory}/vehicle_types.csv", index=False)

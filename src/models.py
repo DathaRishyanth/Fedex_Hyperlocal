@@ -25,6 +25,7 @@ class Operator:
     contact_person_name: str
     registered_name: str
     registered_address: str
+    Max_number_of_orders_each_vehicle_can_take : int
     operates_in: List[int]  # List of city IDs where the operator operates
     start_time : datetime
     end_time : datetime
@@ -52,6 +53,8 @@ class InventoryItem:
     weight: float
     dimensions: tuple[float, float, float]  # (length, breadth, height)
     special_handling_requirements: List[str]  # Any specific requirements for handling this item
+
+
 
 
 @dataclass

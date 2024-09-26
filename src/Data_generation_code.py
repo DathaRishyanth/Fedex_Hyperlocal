@@ -285,7 +285,7 @@ def generate_data(data):
 
         available_drivers = Available_drivers()  # Populate available drivers list
 
-
+     
 
 
         # Save all generated data to respective CSV files

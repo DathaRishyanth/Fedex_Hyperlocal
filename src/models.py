@@ -145,3 +145,16 @@ class ActiveOrder:
     last_updated: datetime
     tracking_url: Optional[str] = None  # URL for tracking the order, if available
     delivery_window: Optional[str] = None  # e.g., "9 AM - 12 PM"
+
+@dataclass
+
+class inventory_id:
+    id: int
+    inventory_item_type_id:str
+    number_of_items: int
+    store_id: int
+    operator_id: int
+    city_id: int
+
+
+

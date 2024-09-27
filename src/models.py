@@ -162,6 +162,17 @@ class AvailableDriver:
     pending_orders_count: int
     availability_time: Optional[datetime] = None  # Time when the driver is next available
 
+@dataclass
+class Request:
+    Request_id: str
+    Customer_id : str
+    Operator_id: str
+    Request_placing_time: Optional[datetime] = None
+    Delivery_latitude: float
+    Delivery_longitude: float
+    Delivery_address: str
+    items_in_this_request: [()]
+
 
 @dataclass
 class ActiveOrder:

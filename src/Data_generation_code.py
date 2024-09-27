@@ -258,7 +258,7 @@ def generate_data(data):
                         driver = Driver(
                             id=len(drivers) + 1,
                             name=f"Driver_{len(drivers) + 1}",
-                            city=city.name,
+                            city=city.city_id, ##`  `
                             pan=f"ABCDE{random.randint(1000, 9999)}F",
                             aadhar=f"{random.randint(1000, 9999)} {random.randint(1000, 9999)} {random.randint(1000, 9999)}",
                             dl_number=f"DL-{random.randint(1000, 9999)}-{random.randint(100000, 999999)}",
@@ -324,16 +324,91 @@ def generate_data(data):
 
         shipment_requests = generate_shipment_requests()  # Populate shipment requests list
 
-        def Available_drivers():
+        # def Available_drivers():
+        #     available_drivers = []
+        #     for driver in drivers:
+        #         city = driver.city
+        #         if city in operators
+        #     return available_drivers
+
+        # available_drivers = Available_drivers()  # Populate available drivers list
+
+        def generate_available_drivers(stores, N=50):
             available_drivers = []
+
             for driver in drivers:
-                if driver.Available:
-                    available_drivers.append(driver)
+                for city_id in driver.city:
+                    if city_id in stores:
+                        for i in range(1, N + 1):
+                            if(len(vehicles) < N):
+                                print("Not enough vehicles are available to assign to available_drivers, create more vehicles")
+                                return
+                            
+                            driver_location = generate_random_points(
+                                Point(city_list[city_id - 1].center_latitude, city_list[city_id - 1].center_longitude),
+                                radius=city_list[city_id - 1].radius, 
+                                num_points = 1
+                            )
+                            driver_latitude = driver_location[0][0]
+                            driver_longitude = driver_location[0][1]
+                            
+                            driver = AvailableDriver(
+                                driver_id = driver.id,
+                                name = f"Driver_{driver.id}",
+                                latitude = driver_latitude,
+                                longitude = driver_longitude,
+                                city_id = city_id,
+                                vehice_id = vehicles[i].vehicle_id,
+                                Current_status = None,
+                                max_delivery_radius = None,
+                                Pending_orders_count = None,
+                                avlibility_time = None
+                            )
+                            available_drivers.append(driver)
+                            driver_id += 1
             return available_drivers
 
-        available_drivers = Available_drivers()  # Populate available drivers list
+        # Example usage
+        available_drivers = generate_available_drivers(stores, N=50)
+            
+        def generate_requests(stores, N):
+            requests = []
 
-     
+            for store in stores:
+                city_id = store.city_id
+                delivery_locations = generate_random_points(
+                    Point(city_list[city_id - 1].center_latitude, city_list[city_id - 1].center_longitude),
+                    radius=city_list[city_id - 1].radius, 
+                    num_points = random.randint(20, 50)
+                )
+
+                for delivery_location in delivery_locations:
+                    driver_latitude = delivery_location[0]
+                    driver_longitude = delivery_location[1]
+                    number_of_items = random.randint(1, 10)
+                    
+                    delivery_items = []
+                    for _ in range(1, number_of_items + 1):
+                        item_id = random.choice(item_type_for_inventory).item_id
+                        delivery_item = (item_id, random.randint(1, 20))
+                        delivery_items.append(delivery_item)
+
+                    request = Request(
+                        Request_id = request_id,
+                        Customer_id = None,
+                        Operator_id = store.operator_id,
+                        Request_placing_time = datetime.combine(datetime.today(), datetime.strptime("09:00", "%H:%M").time()),
+                        Delivery_latitude = driver_latitude,
+                        Delivery_longitude = driver_longitude,
+                        Delivery_address = "Address" + request_id,
+                        items_in_this_request = delivery_items
+                    )
+                    request_id += 1
+                requests.append(request)
+            return requests
+
+        # Example usage
+        requests = generate_requests(stores, N=100)
 
 
         # Save all generated data to respective CSV files

@@ -1,0 +1,11 @@
+vehicle_owner_Id,Name,PAN,Aadhar,City,Address,Rating
+1,vehicle_owner_1,ABCDE3386F,6681 2287 7586,Belgaum,Address_1,4.75
+2,vehicle_owner_2,ABCDE1895F,9160 5031 1954,Barddhaman,Address_2,3.17
+3,vehicle_owner_3,ABCDE8935F,3297 2141 5243,Amritsar,Address_3,2.75
+4,vehicle_owner_4,ABCDE6171F,2295 1337 1606,Ahmadnagar,Address_4,3.9
+5,vehicle_owner_5,ABCDE7020F,4574 4989 1435,Alappuzha,Address_5,4.09
+6,vehicle_owner_6,ABCDE5069F,7888 3341 7901,Calicut,Address_6,3.16
+7,vehicle_owner_7,ABCDE4149F,4915 7585 8995,Bijapur,Address_7,3.02
+8,vehicle_owner_8,ABCDE8090F,6042 3730 1309,Barddhaman,Address_8,3.09
+9,vehicle_owner_9,ABCDE1799F,6448 6620 9967,Bhatpara,Address_9,3.71
+10,vehicle_owner_10,ABCDE3481F,4767 2008 4821,Baramula,Address_10,4.3

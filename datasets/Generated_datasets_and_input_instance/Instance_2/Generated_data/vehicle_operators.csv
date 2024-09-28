@@ -1,0 +1,11 @@
+vehicle_operator_id,Name,PAN,Aadhar,City,Address,Rating
+1,vehicle_operator_1,ABCDE6235F,8678 5621 7702,Baramula,Address_1,4.52
+2,vehicle_operator_2,ABCDE8861F,6578 3655 6178,Agartala,Address_2,1.27
+3,vehicle_operator_3,ABCDE2678F,8894 4924 5877,Alappuzha,Address_3,3.75
+4,vehicle_operator_4,ABCDE1055F,8099 3388 2776,Agartala,Address_4,1.19
+5,vehicle_operator_5,ABCDE1170F,3981 9437 1041,Bidar,Address_5,2.0
+6,vehicle_operator_6,ABCDE5182F,6320 5503 5386,Alappuzha,Address_6,3.62
+7,vehicle_operator_7,ABCDE4877F,3093 4810 6267,Bhilwara,Address_7,4.16
+8,vehicle_operator_8,ABCDE4940F,5307 5231 6266,Alwar,Address_8,1.6
+9,vehicle_operator_9,ABCDE3775F,5791 2841 7878,Agra,Address_9,3.63
+10,vehicle_operator_10,ABCDE9396F,3917 2231 7381,Bulandshahr,Address_10,2.95

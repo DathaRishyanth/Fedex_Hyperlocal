@@ -1,0 +1,11 @@
+vehicle_operator_id,Name,PAN,Aadhar,City,Address,Rating
+1,vehicle_operator_1,ABCDE5254F,9240 6719 1526,Abohar,Address_1,1.65
+2,vehicle_operator_2,ABCDE9292F,8596 6054 3176,Baramula,Address_2,3.67
+3,vehicle_operator_3,ABCDE6652F,3423 3191 2412,Akola,Address_3,4.33
+4,vehicle_operator_4,ABCDE4144F,5220 1851 3367,Aurangabad,Address_4,3.92
+5,vehicle_operator_5,ABCDE4510F,3207 7053 1453,Adilabad,Address_5,2.47
+6,vehicle_operator_6,ABCDE5677F,5079 8352 9239,Bakshpur,Address_6,1.53
+7,vehicle_operator_7,ABCDE8895F,6687 8016 8057,Ajmer,Address_7,3.66
+8,vehicle_operator_8,ABCDE6747F,7754 4484 7386,Bamanpuri,Address_8,3.19
+9,vehicle_operator_9,ABCDE1326F,7328 8541 3182,Ahmedabad,Address_9,2.28
+10,vehicle_operator_10,ABCDE2118F,4820 4438 4296,Ahmedabad,Address_10,1.24

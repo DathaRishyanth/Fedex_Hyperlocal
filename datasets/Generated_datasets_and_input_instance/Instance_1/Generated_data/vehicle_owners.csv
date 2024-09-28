@@ -1,0 +1,11 @@
+vehicle_owner_Id,Name,PAN,Aadhar,City,Address,Rating
+1,vehicle_owner_1,ABCDE5994F,2077 6390 6981,Aurangabad,Address_1,1.77
+2,vehicle_owner_2,ABCDE8622F,7588 4726 6472,Agra,Address_2,4.81
+3,vehicle_owner_3,ABCDE5647F,4905 7808 8894,Abohar,Address_3,4.21
+4,vehicle_owner_4,ABCDE3830F,4936 2457 9070,Agartala,Address_4,3.58
+5,vehicle_owner_5,ABCDE4259F,8314 4749 6634,Bareilly,Address_5,2.97
+6,vehicle_owner_6,ABCDE6261F,5780 1941 9303,Alipurduar,Address_6,1.43
+7,vehicle_owner_7,ABCDE7134F,7769 1592 4427,Alwar,Address_7,1.93
+8,vehicle_owner_8,ABCDE5082F,2302 4627 2955,Akola,Address_8,3.57
+9,vehicle_owner_9,ABCDE4392F,1922 3751 7987,Alipurduar,Address_9,2.03
+10,vehicle_owner_10,ABCDE5770F,9675 1636 8483,Ambala,Address_10,1.97

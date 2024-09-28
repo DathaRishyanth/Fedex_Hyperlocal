@@ -1,9 +1,82 @@
 import pandas as pd
-from Data_generation_code import city_list, operators, stores
+from Data_generation_code import city_list, operators, stores, customers
+from models import *
+
+#run this for all instances in the Generated_datasets folder
+city_list_df = pd.read_csv("../datasets/Raw_data/indian-cities.csv")
+city_list = []
+for index, row in city_list_df.iterrows():
+    city_list.append(
+        City(
+            row["city_id"],
+            row["name"],
+            row["center_latitude"],
+            row["center_longitude"],
+            row["radius"],
+            row["district"],
+            row["state"],
+            row["country"],
+            row["population"],
+            row["list_of_operators"],
+        )
+    )
+
+operators_df = pd.read_csv("../datasets/Raw_data/operators.csv")
+# create a list of objects from the operators_df
+operators = []
+for index, row in operators_df.iterrows():
+    operators.append(
+        Operator(
+            row["operator_id"],
+            row["name"],
+            row["contact_email"],
+            row["contact_phone"],
+            row["contact_person_name"],
+            row["registered_name"],
+            row["registered_address"],
+            row["operates_in"],
+            row["start_time"],
+            row["end_time"],
+            row["list_of_stores"],
+        )
+    )
+
+stores_df = pd.read_csv("../datasets/Raw_data/stores.csv")
+# create a list of objects from the stores_df
+stores = []
+for index, row in stores_df.iterrows():
+    stores.append(
+        Store(
+            row["store_id"],
+            row["operator_id"],
+            row["city_id"],
+            row["location_latitude"],
+            row["location_longitude"],
+            row["contact_email"],
+            row["contact_mobile"],
+            row["start_time"],
+            row["end_time"],
+            row["inventory_capacity"],
+        )
+    )
+customers_df = pd.read_csv("../datasets/Raw_data/customers.csv")
+# create a list of objects from the customers_df
+customers = []
+for index, row in customers_df.iterrows():
+    customers.append(
+        Customer(
+            row["customer_id"],
+            row["location_latitude"],
+            row["location_longitude"],
+            row["address"],
+            row["city_id"],
+        )
+    )
 
 
 def verify_cities_data():
     cities_df = pd.read_csv("../datasets/Raw_data/indian-cities.csv")
+
     for city in city_list:
         if city.name not in cities_df["City"].values:
             print(f"City {city.name} not found in the dataset")
@@ -40,24 +113,23 @@ verify_operators_data()
 
 def verify_stores_data():
     for store in stores:
-        
+
         # for each store in stores list, check if the city matches with the city id in city list
         if store.city_id not in [city.city_id for city in city_list]:
             print(
                 f"City {store.city_id} of store {store.store_id} not found in the dataset"
             )
-            
+
         # for each store in stores list, check if the operator matches with the operator id in operators list
         if store.operator_id not in [operator.operator_id for operator in operators]:
             print(
                 f"Operator {store.operator_id} of store {store.store_id} not found in the dataset"
             )
-            
+
         # checking whether the start time is greater than end time
         if store.start_time > store.end_time:
             print(f"Store {store.store_id} start time is greater than end time")
 
-       
         # checking whether the inventory capacity is negative
         if store.inventory_capacity < 0:
             print(f"Store {store.store_id} inventory capacity is negative")
@@ -85,5 +157,32 @@ def verify_stores_data():
             )
     print("Stores data verified successfully")
 
+
 verify_stores_data()
- 
+
+
+def verify_customers():
+    for customer in customers:
+
+        # check if the city id is present in the city list
+        if customer.city_id not in [city.city_id for city in city_list]:
+            print(
+                f"City {customer.city_id} of customer {customer.customer_id} not found in the dataset"
+            )
+        # checking whether the customer latitude and longitude are within the city radius
+        if (
+            customer.location_latitude - city_list[customer.city_id - 1].center_latitude
+        ) ** 2 + (
+            customer.location_longitude
+            - city_list[customer.city_id - 1].center_longitude
+        ) ** 2 > city_list[
+            customer.city_id - 1
+        ].radius ** 2:
+            print(
+                f"Customer {customer.customer_id} latitude and longitude are not within the city radius"
+            )
+    print("Customers data verified successfully")
+
+
+verify_customers()
+

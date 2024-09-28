@@ -194,7 +194,7 @@ def generate_data(data):
             for i in range(1, NUM_VEHICLE_TYPES + 1):
                 vehicle_type = VehicleType(
                     id=i,
-                    name=vehicle_type_names[i],
+                    name=vehicle_type_names[i-1],
                     weight_carrying_capacity=round(random.uniform(500, 2000), 2),
                     container_space_length=round(random.uniform(1, 10), 2),
                     container_space_breadth=round(random.uniform(1, 10), 2),

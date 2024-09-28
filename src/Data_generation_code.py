@@ -28,7 +28,7 @@ for path in PATHS_TO_CONFIGS:
 
 
 # Load city data from CSV
-cities_df = pd.read_csv("../datasets/Raw_data/indian-cities.csv")
+cities_df = pd.read_csv("quick_commerce/src/indian-cities.csv")
 def generate_data(data):
         """Generate data for the Quick Commerce system."""
         # Constants
@@ -333,44 +333,43 @@ def generate_data(data):
 
         # available_drivers = Available_drivers()  # Populate available drivers list
 
-        def generate_available_drivers(stores, N=50):
+        def generate_available_drivers(stores, N):
             available_drivers = []
 
             for driver in drivers:
-                for city_id in driver.city:
-                    if city_id in stores:
-                        for i in range(1, N + 1):
-                            if(len(vehicles) < N):
-                                print("Not enough vehicles are available to assign to available_drivers, create more vehicles")
-                                return
-                            
-                            driver_location = generate_random_points(
-                                Point(city_list[city_id - 1].center_latitude, city_list[city_id - 1].center_longitude),
-                                radius=city_list[city_id - 1].radius, 
-                                num_points = 1
-                            )
-                            driver_latitude = driver_location[0][0]
-                            driver_longitude = driver_location[0][1]
-                            
-                            driver = AvailableDriver(
-                                driver_id = driver.id,
-                                name = f"Driver_{driver.id}",
-                                latitude = driver_latitude,
-                                longitude = driver_longitude,
-                                city_id = city_id,
-                                vehice_id = vehicles[i].vehicle_id,
-                                Current_status = None,
-                                max_delivery_radius = None,
-                                Pending_orders_count = None,
-                                avlibility_time = None
-                            )
-                            available_drivers.append(driver)
-                            driver_id += 1
+                city_id = driver.city
+                if city_id in [store.city_id for store in stores]:
+                    if len(vehicles) < N:
+                        print("Not enough vehicles are available to assign to available_drivers, create more vehicles.")
+                        return
+
+                    driver_location = generate_random_points(
+                        Point(city_list[city_id - 1].center_latitude, city_list[city_id - 1].center_longitude),
+                        radius=city_list[city_id - 1].radius, 
+                        num_points=1
+                    )
+                    driver_latitude, driver_longitude = driver_location[0]
+
+                    available_driver = AvailableDriver(
+                        driver_id=driver.id,
+                        name=f"Driver_{driver.id}",
+                        latitude=driver_latitude,
+                        longitude=driver_longitude,
+                        assigned_vehicle=random.choice(vehicles).vehicle_id
+                    )
+                    available_drivers.append(available_driver)
+
             return available_drivers
 
-        # Example usage
-        available_drivers = generate_available_drivers(stores, N=50)
-            
+        # After generating all data
+        available_drivers = generate_available_drivers(stores, 5)  # Populate available drivers list
+
+        # Print available drivers
+        print("Available Drivers:")
+        for driver in available_drivers:
+            print(vars(driver))
+
+
         def generate_requests(stores, N):
             requests = []
 
@@ -379,7 +378,7 @@ def generate_data(data):
                 delivery_locations = generate_random_points(
                     Point(city_list[city_id - 1].center_latitude, city_list[city_id - 1].center_longitude),
                     radius=city_list[city_id - 1].radius, 
-                    num_points = random.randint(20, 50)
+                    num_points = random.randint(0, N)
                 )
 
                 for delivery_location in delivery_locations:
@@ -403,13 +402,17 @@ def generate_data(data):
                         Delivery_address = "Address" + request_id,
                         items_in_this_request = delivery_items
                     )
+                    
+                    requests.append(request)
                     request_id += 1
-                requests.append(request)
+
             return requests
 
-        # Example usage
         requests = generate_requests(stores, N=100)
 
+        print("Shipment Requests:")
+        for request in shipment_requests:
+            print(vars(request)) 
 
         # Save all generated data to respective CSV files
         operators_df = pd.DataFrame([vars(operator) for operator in operators])
@@ -419,8 +422,9 @@ def generate_data(data):
         customers_df = pd.DataFrame([vars(customer) for customer in customers])
         vehicles_df = pd.DataFrame([vars(vehicle) for vehicle in vehicles])
         vehicle_types_df = pd.DataFrame([vars(vehicle_type) for vehicle_type in vehicle_types])
-        requests_df = pd.DataFrame([vars(request) for request in shipment_requests])
+        # requests_df = pd.DataFrame([vars(request) for request in shipment_requests])
         available_drivers_df=pd.DataFrame([vars(driver) for driver in available_drivers])
+        requests_df=pd.DataFrame([vars(request) for request in requests])
         vehiclle_operators_df=pd.DataFrame([vars(vehicle_operator) for vehicle_operator in vehicle_operators])
         vehicle_owners_df=pd.DataFrame([vars(vehicle_owner) for vehicle_owner in vehicle_owners])
         active_requests_df=pd.DataFrame()
@@ -441,7 +445,8 @@ def generate_data(data):
             customers_df.to_csv(f"{output_directory}/customers.csv", index=False)
             vehicles_df.to_csv(f"{output_directory}/vehicles.csv", index=False)
             vehicle_types_df.to_csv(f"{output_directory}/vehicle_types.csv", index=False)
-            requests_df.to_csv(f"{output_directory}/shipment_requests.csv", index=False)
+            # requests_df.to_csv(f"{output_directory}/shipment_requests.csv", index=False)
+            requests_df.to_csv(f"{output_directory}/requests.csv", index=False)
             available_drivers_df.to_csv(f"{output_directory}/available_drivers.csv", index=False)
             active_requests_df.to_csv(f"{output_directory}/active_requests.csv", index=False)
             unserviced_requests_df.to_csv(f"{output_directory}/unserviced_requests.csv", index=False)

@@ -414,7 +414,7 @@ def generate_data(data):
                     
                     request = Request(
                         Request_id = request_id,
-                        Customer_id = customers[customer_id].customer_id, # assures there is an id, better than writing customer_id directly
+                        Customer_id = customers[customer_id - 1].customer_id, # assures there is an id, better than writing customer_id directly
                         operators_id= random.choice(city.list_of_operators),
                         Request_placing_time = datetime.combine(datetime.today(), datetime.strptime("09:00", "%H:%M").time()),
                         Delivery_latitude = delivery_latitude,

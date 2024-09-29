@@ -1,0 +1,11 @@
+vehicle_owner_Id,Name,PAN,Aadhar,City,Address,Rating
+1,vehicle_owner_1,ABCDE8424F,8817 2430 6623,Amritsar,Address_1,3.98
+2,vehicle_owner_2,ABCDE6271F,9857 1284 8285,Aurangabad,Address_2,4.99
+3,vehicle_owner_3,ABCDE5123F,9464 5448 6709,Ajmer,Address_3,1.23
+4,vehicle_owner_4,ABCDE1226F,9602 3696 2093,Aizawl  ,Address_4,2.48
+5,vehicle_owner_5,ABCDE2525F,2310 7365 1622,Baramula,Address_5,3.26
+6,vehicle_owner_6,ABCDE3893F,1929 9033 2437,Adilabad,Address_6,1.85
+7,vehicle_owner_7,ABCDE8273F,3091 2859 6596,Amaravati,Address_7,2.42
+8,vehicle_owner_8,ABCDE4203F,7923 9534 6456,Alwar,Address_8,1.95
+9,vehicle_owner_9,ABCDE7541F,8060 3130 8691,Akola,Address_9,5.0
+10,vehicle_owner_10,ABCDE4135F,1633 5257 3317,Barddhaman,Address_10,3.14

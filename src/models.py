@@ -157,6 +157,7 @@ class AvailableDriver:
     longitude: float
     city_id: str
     vehicle_id: str
+    operators_id: str
     current_status: str
     max_delivery_radius: float
     pending_orders_count: int

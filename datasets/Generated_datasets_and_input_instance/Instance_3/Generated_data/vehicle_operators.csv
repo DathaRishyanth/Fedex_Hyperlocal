@@ -1,0 +1,11 @@
+vehicle_operator_id,Name,PAN,Aadhar,City,Address,Rating
+1,vehicle_operator_1,ABCDE2118F,9353 2460 5289,Alipurduar,Address_1,3.15
+2,vehicle_operator_2,ABCDE3878F,7986 7560 1577,Ambala,Address_2,4.32
+3,vehicle_operator_3,ABCDE8164F,9595 9034 3428,Aurangabad,Address_3,2.66
+4,vehicle_operator_4,ABCDE1177F,9397 6854 7791,Bakshpur,Address_4,3.82
+5,vehicle_operator_5,ABCDE3829F,5761 2447 9334,Ambala,Address_5,4.62
+6,vehicle_operator_6,ABCDE3198F,1756 8720 8132,Alwar,Address_6,1.5
+7,vehicle_operator_7,ABCDE6580F,1862 7032 5100,Alappuzha,Address_7,2.51
+8,vehicle_operator_8,ABCDE4766F,4781 6857 6781,Aligarh,Address_8,3.46
+9,vehicle_operator_9,ABCDE3020F,2665 2230 7488,Ambala,Address_9,3.4
+10,vehicle_operator_10,ABCDE8005F,4817 2876 6755,Aurangabad,Address_10,4.7

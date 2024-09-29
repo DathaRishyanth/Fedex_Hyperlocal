@@ -11,7 +11,7 @@ PATHS_TO_CONFIGS = []
 
 i = 1
 while True:
-    path = f"../datasets/generated_datasets_and_input_instance/Instance_{i}/config.txt"
+    path = f"../datasets/Generated_datasets_and_input_instance/Instance_{i}/config.txt"
     try:
         with open(path, 'r') as file:
             PATHS_TO_CONFIGS.append(path)
@@ -28,7 +28,7 @@ for path in PATHS_TO_CONFIGS:
 
 
 # Load city data from CSV
-cities_df = pd.read_csv("quick_commerce/src/indian-cities.csv")
+cities_df = pd.read_csv("../datasets/Raw_data/indian-cities.csv")
 def generate_data(data):
         """Generate data for the Quick Commerce system."""
         # Constants
@@ -258,7 +258,7 @@ def generate_data(data):
                         driver = Driver(
                             id=len(drivers) + 1,
                             name=f"Driver_{len(drivers) + 1}",
-                            city=city.city_id, ##`  `
+                            city=city.city_id,
                             pan=f"ABCDE{random.randint(1000, 9999)}F",
                             aadhar=f"{random.randint(1000, 9999)} {random.randint(1000, 9999)} {random.randint(1000, 9999)}",
                             dl_number=f"DL-{random.randint(1000, 9999)}-{random.randint(100000, 999999)}",
@@ -322,97 +322,113 @@ def generate_data(data):
 
             return shipment_requests
 
-        shipment_requests = generate_shipment_requests()  # Populate shipment requests list
+        # shipment_requests = generate_shipment_requests()  # Populate shipment requests list
 
-        # def Available_drivers():
-        #     available_drivers = []
-        #     for driver in drivers:
-        #         city = driver.city
-        #         if city in operators
-        #     return available_drivers
 
-        # available_drivers = Available_drivers()  # Populate available drivers list
-
-        def generate_available_drivers(stores, N):
+        def generate_available_drivers(N):
+            driver_id = 1
+            vehicle_id = 1
             available_drivers = []
+            for city in city_list:
+                operators = city.list_of_operators
+                if(len(operators) == 0):
+                    continue
 
-            for driver in drivers:
-                city_id = driver.city
-                if city_id in [store.city_id for store in stores]:
-                    if len(vehicles) < N:
-                        print("Not enough vehicles are available to assign to available_drivers, create more vehicles.")
-                        return
+                city_id = city.city_id
+                center_latitude = city.center_latitude
+                center_longitude = city.center_latitude
 
-                    driver_location = generate_random_points(
-                        Point(city_list[city_id - 1].center_latitude, city_list[city_id - 1].center_longitude),
-                        radius=city_list[city_id - 1].radius, 
-                        num_points=1
-                    )
-                    driver_latitude, driver_longitude = driver_location[0]
+                driver_location = generate_random_points(
+                    Point(center_latitude, center_longitude),
+                    radius=city.radius, 
+                    num_points=random.randint(1, N)
+                )
+                driver_latitude, driver_longitude = driver_location[0]
 
-                    available_driver = AvailableDriver(
-                        driver_id=driver.id,
-                        name=f"Driver_{driver.id}",
-                        latitude=driver_latitude,
-                        longitude=driver_longitude,
-                        assigned_vehicle=random.choice(vehicles).vehicle_id
-                    )
-                    available_drivers.append(available_driver)
+                if(driver_id > len(drivers)):
+                    print("Generate more Drivers")
+                    break
+
+                if(vehicle_id > len(vehicles)):
+                    print("Generate more vehicles")
+                    break
+
+                available_driver = AvailableDriver(
+                    driver_id=drivers[driver_id].id,
+                    city_id=city_id,
+                    vehicle_id=vehicles[vehicle_id].vehicle_id,
+                    name=f"Driver_{driver_id}",
+                    latitude=driver_latitude,
+                    longitude=driver_longitude,
+                    operators_id= random.choice(city.list_of_operators),
+                    current_status = None,
+                    availability_time = None,
+                    max_delivery_radius = None,
+                    pending_orders_count = None
+                )
+                driver_id += 1
+                vehicle_id += 1
+                available_drivers.append(available_driver)
 
             return available_drivers
 
         # After generating all data
-        available_drivers = generate_available_drivers(stores, 5)  # Populate available drivers list
+        available_drivers = generate_available_drivers(50)  # Populate available drivers list
 
-        # Print available drivers
-        print("Available Drivers:")
-        for driver in available_drivers:
-            print(vars(driver))
+        # print(available_drivers)
 
 
-        def generate_requests(stores, N):
+        def generate_requests(N):
             requests = []
+            request_id = 1
+            customer_id = 1
+            for city in city_list:
+                operators = city.list_of_operators
+                if(len(operators) == 0):
+                    print(f"No operators in {city}")
+                    continue
 
-            for store in stores:
-                city_id = store.city_id
-                delivery_locations = generate_random_points(
-                    Point(city_list[city_id - 1].center_latitude, city_list[city_id - 1].center_longitude),
-                    radius=city_list[city_id - 1].radius, 
-                    num_points = random.randint(0, N)
+                center_latitude = city.center_latitude
+                center_longitude = city.center_latitude
+
+                number_of_requests_in_city = random.randint(1, N)
+                delivery_location = generate_random_points(
+                    Point(center_latitude, center_longitude),
+                    radius=city.radius, 
+                    num_points=number_of_requests_in_city
                 )
+                
+                delivery_latitude, delivery_longitude = delivery_location[0]
 
-                for delivery_location in delivery_locations:
-                    driver_latitude = delivery_location[0]
-                    driver_longitude = delivery_location[1]
-                    number_of_items = random.randint(1, 10)
-                    
+                for _ in range(1, number_of_requests_in_city + 1):
                     delivery_items = []
-                    for _ in range(1, number_of_items + 1):
+                    max_number_of_items = random.randint(1, len(item_type_for_inventory) + 1)
+                    for _ in range(1,  max_number_of_items + 1):
                         item_id = random.choice(item_type_for_inventory).item_id
                         delivery_item = (item_id, random.randint(1, 20))
                         delivery_items.append(delivery_item)
 
+                    if(len(customers) <= customer_id):
+                        print("create more customers")
+                        break
+                    
                     request = Request(
                         Request_id = request_id,
-                        Customer_id = None,
-                        Operator_id = store.operator_id,
+                        Customer_id = customers[customer_id].customer_id, # assures there is an id, better than writing customer_id directly
+                        operators_id= random.choice(city.list_of_operators),
                         Request_placing_time = datetime.combine(datetime.today(), datetime.strptime("09:00", "%H:%M").time()),
-                        Delivery_latitude = driver_latitude,
-                        Delivery_longitude = driver_longitude,
-                        Delivery_address = "Address" + request_id,
+                        Delivery_latitude = delivery_latitude,
+                        Delivery_longitude = delivery_longitude,
+                        Delivery_address = f"Address_{request_id}",
                         items_in_this_request = delivery_items
                     )
-                    
-                    requests.append(request)
                     request_id += 1
+                    customer_id += 1
+                    requests.append(request)
 
             return requests
 
-        requests = generate_requests(stores, N=100)
-
-        print("Shipment Requests:")
-        for request in shipment_requests:
-            print(vars(request)) 
+        requests = generate_requests(5)
 
         # Save all generated data to respective CSV files
         operators_df = pd.DataFrame([vars(operator) for operator in operators])

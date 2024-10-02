@@ -1,11 +1,11 @@
 vehicle_operator_id,Name,PAN,Aadhar,City,Address,Rating
-1,vehicle_operator_1,ABCDE2823F,5310 8407 9107,Amritsar,Address_1,2.81
-2,vehicle_operator_2,ABCDE4723F,6280 7554 2682,Bakshpur,Address_2,1.8
-3,vehicle_operator_3,ABCDE3289F,6668 8290 6080,Abohar,Address_3,4.1
-4,vehicle_operator_4,ABCDE1782F,3621 3063 3681,Aurangabad,Address_4,1.31
-5,vehicle_operator_5,ABCDE6047F,5228 4137 5209,Aligarh,Address_5,2.83
-6,vehicle_operator_6,ABCDE5663F,5645 7361 4638,Bareilly,Address_6,1.96
-7,vehicle_operator_7,ABCDE5978F,5061 6998 3078,Adilabad,Address_7,1.2
-8,vehicle_operator_8,ABCDE3788F,9144 9280 5984,Amritsar,Address_8,3.17
-9,vehicle_operator_9,ABCDE9162F,6386 9350 3289,Alipurduar,Address_9,4.51
-10,vehicle_operator_10,ABCDE6621F,5194 8421 5183,Ahmedabad,Address_10,1.57
+1,vehicle_operator_1,ABCDE8951F,7370 2167 3293,Allahabad,Address_1,1.55
+2,vehicle_operator_2,ABCDE1447F,4044 9036 5794,Aurangabad,Address_2,4.45
+3,vehicle_operator_3,ABCDE9609F,3191 9201 5159,Ahmadnagar,Address_3,4.35
+4,vehicle_operator_4,ABCDE6267F,9688 3876 9023,Alipurduar,Address_4,3.59
+5,vehicle_operator_5,ABCDE3426F,9051 7138 7434,Ajmer,Address_5,3.35
+6,vehicle_operator_6,ABCDE6966F,6445 8900 9370,Akola,Address_6,3.65
+7,vehicle_operator_7,ABCDE7181F,2653 8501 7327,Allahabad,Address_7,2.08
+8,vehicle_operator_8,ABCDE6621F,6756 6149 9953,Aurangabad,Address_8,2.1
+9,vehicle_operator_9,ABCDE4046F,8705 8667 2076,Aurangabad,Address_9,2.11
+10,vehicle_operator_10,ABCDE5162F,6770 4360 8424,Amaravati,Address_10,1.33

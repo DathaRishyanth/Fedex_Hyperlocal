@@ -1,11 +1,11 @@
 item_id,name,item_type,weight,dimensions,special_handling_requirements
-1,Item_1,Books,7.56,"(0.31, 0.84, 0.86)",None
-2,Item_2,Clothing,5.44,"(0.8, 0.48, 0.93)",Hazardous
-3,Item_3,Books,0.99,"(0.35, 0.39, 0.29)",None
-4,Item_4,Furniture,9.65,"(0.42, 0.66, 0.8)",None
-5,Item_5,Furniture,9.36,"(0.95, 0.95, 0.98)",Hazardous
-6,Item_6,Books,6.7,"(0.7, 0.29, 0.89)",Perishable
-7,Item_7,Furniture,9.68,"(0.5, 0.24, 0.81)",Fragile
-8,Item_8,Books,4.13,"(0.38, 0.4, 0.34)",Perishable
-9,Item_9,Food,8.24,"(0.23, 0.76, 0.58)",Fragile
-10,Item_10,Food,6.06,"(0.33, 0.38, 0.16)",Fragile
+1,Item_1,Electronics,3.48,"(0.68, 0.63, 0.91)",Fragile
+2,Item_2,Clothing,2.51,"(0.28, 0.73, 0.75)",Fragile
+3,Item_3,Clothing,8.87,"(0.62, 0.41, 0.41)",Fragile
+4,Item_4,Books,6.52,"(0.67, 0.39, 0.39)",None
+5,Item_5,Clothing,2.04,"(0.57, 0.57, 0.51)",None
+6,Item_6,Electronics,9.52,"(0.47, 0.66, 0.82)",None
+7,Item_7,Clothing,6.21,"(0.27, 0.17, 0.88)",Perishable
+8,Item_8,Furniture,0.89,"(0.21, 0.49, 0.87)",Fragile
+9,Item_9,Food,2.21,"(0.14, 0.62, 0.25)",None
+10,Item_10,Electronics,5.23,"(0.5, 0.36, 0.75)",None

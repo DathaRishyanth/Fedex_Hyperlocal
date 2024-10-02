@@ -1,11 +1,11 @@
 vehicle_owner_Id,Name,PAN,Aadhar,City,Address,Rating
-1,vehicle_owner_1,ABCDE7084F,9124 6819 6032,Bakshpur,Address_1,3.98
-2,vehicle_owner_2,ABCDE5884F,5503 6840 5774,Ambala,Address_2,2.47
-3,vehicle_owner_3,ABCDE9026F,3804 2935 4051,Adilabad,Address_3,3.64
-4,vehicle_owner_4,ABCDE5234F,3603 9817 3642,Abohar,Address_4,3.61
-5,vehicle_owner_5,ABCDE2113F,2057 6421 3083,Ajmer,Address_5,1.36
-6,vehicle_owner_6,ABCDE8067F,5130 9554 6066,Aizawl  ,Address_6,4.57
-7,vehicle_owner_7,ABCDE3894F,9365 3843 3914,Alwar,Address_7,2.19
-8,vehicle_owner_8,ABCDE9644F,5537 8131 5388,Abohar,Address_8,3.53
-9,vehicle_owner_9,ABCDE6146F,8112 8335 7833,Aligarh,Address_9,4.29
-10,vehicle_owner_10,ABCDE4579F,2131 4702 9006,Alipurduar,Address_10,2.66
+1,vehicle_owner_1,ABCDE9927F,9111 6374 3373,Amritsar,Address_1,3.13
+2,vehicle_owner_2,ABCDE1653F,1221 2871 4202,Amaravati,Address_2,1.91
+3,vehicle_owner_3,ABCDE8286F,2670 5891 9369,Aurangabad,Address_3,3.62
+4,vehicle_owner_4,ABCDE5536F,5130 4449 6565,Aligarh,Address_4,1.87
+5,vehicle_owner_5,ABCDE7770F,9053 5976 6581,Alappuzha,Address_5,1.82
+6,vehicle_owner_6,ABCDE8567F,3007 1646 4028,Ambala,Address_6,4.6
+7,vehicle_owner_7,ABCDE2287F,8791 4380 2528,Alipurduar,Address_7,1.78
+8,vehicle_owner_8,ABCDE3788F,5259 4985 4091,Aizawl  ,Address_8,1.21
+9,vehicle_owner_9,ABCDE2497F,3868 9095 8830,Agra,Address_9,4.85
+10,vehicle_owner_10,ABCDE6757F,3218 6300 2046,Barddhaman,Address_10,3.2

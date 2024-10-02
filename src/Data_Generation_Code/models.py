@@ -1,3 +1,4 @@
+
 from dataclasses import dataclass
 from typing import List, Optional,Tuple
 from datetime import datetime
@@ -201,5 +202,3 @@ class Inventory:
     store_id: int
     operator_id: int
     city_id: int
-
-

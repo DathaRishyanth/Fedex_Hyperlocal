@@ -1,11 +1,11 @@
 vehicle_operator_id,Name,PAN,Aadhar,City,Address,Rating
-1,vehicle_operator_1,ABCDE2726F,5522 8250 6493,Bulandshahr,Address_1,3.49
-2,vehicle_operator_2,ABCDE2339F,9499 9617 7497,Aurangabad,Address_2,4.0
-3,vehicle_operator_3,ABCDE2284F,2906 7403 3791,Bilaspur,Address_3,4.6
-4,vehicle_operator_4,ABCDE2630F,7550 3355 9686,Bhilwara,Address_4,1.32
-5,vehicle_operator_5,ABCDE6903F,7525 5223 9454,Adilabad,Address_5,4.17
-6,vehicle_operator_6,ABCDE7816F,9520 2075 8557,Bhavnagar,Address_6,4.84
-7,vehicle_operator_7,ABCDE2437F,9303 8895 8495,Bakshpur,Address_7,1.85
-8,vehicle_operator_8,ABCDE1944F,1711 8250 9147,Ambala,Address_8,1.46
-9,vehicle_operator_9,ABCDE6684F,1196 3529 7839,Asansol,Address_9,3.87
-10,vehicle_operator_10,ABCDE4360F,3349 6443 4438,Ahmedabad,Address_10,1.82
+1,vehicle_operator_1,ABCDE4077F,4255 2333 7723,Bharauri,Address_1,2.32
+2,vehicle_operator_2,ABCDE6576F,2007 3187 8311,Ahmadnagar,Address_2,2.73
+3,vehicle_operator_3,ABCDE9328F,4921 9086 5604,Aurangabad,Address_3,2.77
+4,vehicle_operator_4,ABCDE5628F,4384 6209 7007,Bhagalpur,Address_4,1.21
+5,vehicle_operator_5,ABCDE5824F,3349 9924 5541,Calicut,Address_5,2.04
+6,vehicle_operator_6,ABCDE8820F,4286 1401 8954,Ahmedabad,Address_6,2.25
+7,vehicle_operator_7,ABCDE6063F,8081 4599 7715,Bhilwara,Address_7,2.17
+8,vehicle_operator_8,ABCDE1584F,8826 9280 4661,Alwar,Address_8,1.97
+9,vehicle_operator_9,ABCDE8023F,3094 7453 9190,Allahabad,Address_9,3.17
+10,vehicle_operator_10,ABCDE6161F,1174 6084 2109,Akola,Address_10,2.58

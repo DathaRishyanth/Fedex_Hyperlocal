@@ -1,11 +1,11 @@
 vehicle_operator_id,Name,PAN,Aadhar,City,Address,Rating
-1,vehicle_operator_1,ABCDE2630F,2174 5838 2194,Aizawl  ,Address_1,1.37
-2,vehicle_operator_2,ABCDE3380F,7932 3418 4354,Ajmer,Address_2,4.23
-3,vehicle_operator_3,ABCDE4467F,6104 8950 4644,Ahmadnagar,Address_3,3.76
-4,vehicle_operator_4,ABCDE4749F,9043 1264 4975,Ahmedabad,Address_4,4.61
-5,vehicle_operator_5,ABCDE1683F,8774 9474 3995,Aurangabad,Address_5,1.04
-6,vehicle_operator_6,ABCDE1285F,7170 6386 2879,Baramula,Address_6,4.35
-7,vehicle_operator_7,ABCDE8404F,5202 5719 8814,Agartala,Address_7,1.62
-8,vehicle_operator_8,ABCDE1526F,2208 2577 1633,Alipurduar,Address_8,2.31
-9,vehicle_operator_9,ABCDE6394F,3307 5983 1607,Ambala,Address_9,4.22
-10,vehicle_operator_10,ABCDE1572F,8551 7124 7147,Asansol,Address_10,1.18
+1,vehicle_operator_1,ABCDE7129F,3537 4769 2439,Ahmedabad,Address_1,1.11
+2,vehicle_operator_2,ABCDE2674F,9226 9798 4960,Ajmer,Address_2,4.87
+3,vehicle_operator_3,ABCDE6138F,2633 1016 9732,Allahabad,Address_3,1.57
+4,vehicle_operator_4,ABCDE5811F,1408 2091 4665,Ahmadnagar,Address_4,2.33
+5,vehicle_operator_5,ABCDE9123F,2651 1471 9490,Agartala,Address_5,3.24
+6,vehicle_operator_6,ABCDE9302F,6297 1167 8917,Barddhaman,Address_6,1.41
+7,vehicle_operator_7,ABCDE1019F,5937 6823 6408,Barddhaman,Address_7,4.79
+8,vehicle_operator_8,ABCDE1067F,8311 4027 3633,Abohar,Address_8,4.87
+9,vehicle_operator_9,ABCDE3390F,8155 5692 1082,Alipurduar,Address_9,3.29
+10,vehicle_operator_10,ABCDE1146F,8134 5901 8222,Aurangabad,Address_10,4.1

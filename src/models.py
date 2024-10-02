@@ -49,10 +49,10 @@ class Store:
 class InventoryItem:
     item_id: int
     name: str
-    item_type: str
+    item_type: str 
     weight: float
     dimensions: tuple[float, float, float]  # (length, breadth, height)
-    special_handling_requirements: List[str]  # Any specific requirements for handling this item
+    special_handling_requirements: Optional[List[str]]= None  # Any specific requirements for handling this item
 
 
 
@@ -167,11 +167,11 @@ class Request:
     Request_id: str
     Customer_id : str
     Operator_id: str
-    Request_placing_time: Optional[datetime] = None
     Delivery_latitude: float
     Delivery_longitude: float
     Delivery_address: str
-    items_in_this_request: [()]
+    items_in_this_request: List[int]
+    Request_placing_time: Optional[datetime] = None
 
 
 @dataclass

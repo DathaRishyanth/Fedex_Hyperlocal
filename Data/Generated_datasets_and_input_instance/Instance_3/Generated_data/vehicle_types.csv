@@ -1,0 +1,6 @@
+id,name,weight_carrying_capacity,container_space_length,container_space_breadth,container_space_height
+1,two wheeler,1118.98,9.37,2.31,6.74
+2,three wheeler closed,793.52,4.22,7.4,7.99
+3,three wheeler open,649.82,5.0,2.62,6.92
+4,four wheeler closed,1242.44,4.02,6.75,8.67
+5,four wheeler open,1297.72,2.49,8.84,8.96

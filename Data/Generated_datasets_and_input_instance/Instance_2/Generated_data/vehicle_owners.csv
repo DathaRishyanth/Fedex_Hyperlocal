@@ -1,0 +1,11 @@
+vehicle_owner_Id,Name,PAN,Aadhar,City,Address,Rating
+1,vehicle_owner_1,ABCDE5741F,3508 4547 3242,Alwar,Address_1,4.85
+2,vehicle_owner_2,ABCDE2304F,2126 7931 9909,Belgaum,Address_2,2.33
+3,vehicle_owner_3,ABCDE4499F,2258 6035 5203,Bhilwara,Address_3,4.55
+4,vehicle_owner_4,ABCDE4261F,7586 6309 1035,Alwar,Address_4,4.77
+5,vehicle_owner_5,ABCDE8504F,7146 5468 9594,Alwar,Address_5,1.74
+6,vehicle_owner_6,ABCDE9983F,7369 9776 4222,Allahabad,Address_6,3.63
+7,vehicle_owner_7,ABCDE1043F,4160 9963 2969,Bhatpara,Address_7,1.51
+8,vehicle_owner_8,ABCDE8991F,2151 5927 9774,Aurangabad,Address_8,3.34
+9,vehicle_owner_9,ABCDE6764F,5976 4236 4793,Belgaum,Address_9,1.76
+10,vehicle_owner_10,ABCDE7021F,1702 6563 7879,Bulandshahr,Address_10,3.56

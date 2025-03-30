@@ -1,11 +1,6 @@
 vehicle_operator_id,Name,PAN,Aadhar,City,Address,Rating
-1,vehicle_operator_1,ABCDE4077F,4255 2333 7723,Bharauri,Address_1,2.32
-2,vehicle_operator_2,ABCDE6576F,2007 3187 8311,Ahmadnagar,Address_2,2.73
-3,vehicle_operator_3,ABCDE9328F,4921 9086 5604,Aurangabad,Address_3,2.77
-4,vehicle_operator_4,ABCDE5628F,4384 6209 7007,Bhagalpur,Address_4,1.21
-5,vehicle_operator_5,ABCDE5824F,3349 9924 5541,Calicut,Address_5,2.04
-6,vehicle_operator_6,ABCDE8820F,4286 1401 8954,Ahmedabad,Address_6,2.25
-7,vehicle_operator_7,ABCDE6063F,8081 4599 7715,Bhilwara,Address_7,2.17
-8,vehicle_operator_8,ABCDE1584F,8826 9280 4661,Alwar,Address_8,1.97
-9,vehicle_operator_9,ABCDE8023F,3094 7453 9190,Allahabad,Address_9,3.17
-10,vehicle_operator_10,ABCDE6161F,1174 6084 2109,Akola,Address_10,2.58
+1,vehicle_operator_1,ABCDE2071F,8071 2760 6179,Ambala,Address_1,4.22
+2,vehicle_operator_2,ABCDE7406F,7256 1794 3868,Aurangabad,Address_2,2.25
+3,vehicle_operator_3,ABCDE6176F,2884 2545 6864,Ahmadnagar,Address_3,2.99
+4,vehicle_operator_4,ABCDE8099F,3720 6229 8583,Abohar,Address_4,3.88
+5,vehicle_operator_5,ABCDE9572F,4248 7125 9294,Agra,Address_5,1.43

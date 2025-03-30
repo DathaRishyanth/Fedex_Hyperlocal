@@ -1,4 +1,3 @@
-
 from dataclasses import dataclass
 from typing import List, Optional,Tuple
 from datetime import datetime
@@ -15,7 +14,25 @@ class City:
     state: str
     country: str
     population: int
-    list_of_operators:List[int]
+    list_of_companies: List[int]
+    list_of_operators: List[int]
+
+
+@dataclass
+class Company:
+    company_id: int
+    name: str
+    contact_email: str
+    contact_phone: str
+    contact_person_name: str
+    registered_name: str
+    registered_address: str
+    Max_number_of_orders_each_vehicle_can_take : int
+    operates_in: List[int]
+    start_time : datetime
+    end_time : datetime
+    list_of_operators: List[int]
+    # list_of_cites = List[int]
 
 @dataclass
 class Operator:
@@ -26,37 +43,32 @@ class Operator:
     contact_person_name: str
     registered_name: str
     registered_address: str
-    Max_number_of_orders_each_vehicle_can_take : int
-    operates_in: List[int]  # List of city IDs where the operator operates
-    start_time : datetime
-    end_time : datetime
-    list_of_stores:List[int]
+    operates_in: List[int]
+    list_of_stores: List[int]
+
 
 @dataclass
 class Store:
-    store_id: int   # unique id for each store
-    operator_id: int # operator for that store
+    store_id: int   
+    operator_id: int 
     city_id: int
     location_latitude: float
     location_longitude: float
     contact_email: str
     contact_mobile: str
     start_time : datetime
-    end_time : datetime  # (start_hour, end_hour)
-    inventory_capacity: Optional[float]  # Capacity in kilograms, if applicable
-
-
+    end_time : datetime 
+    list_of_items: List[int]
+    inventory_capacity: Optional[float] 
+    
 @dataclass
 class InventoryItem:
     item_id: int
     name: str
     item_type: str 
     weight: float
-    dimensions: tuple[float, float, float]  # (length, breadth, height)
-    special_handling_requirements: Optional[List[str]]= None  # Any specific requirements for handling this item
-
-
-
+    dimensions: tuple[float, float, float]
+    special_handling_requirements: Optional[str] = None
 
 @dataclass
 class Customer:
@@ -84,7 +96,7 @@ class Vehicle:
 class VehicleType:
     id: int
     name: str
-    weight_carrying_capacity: float  # Maximum weight the vehicle can carry in kilograms
+    weight_carrying_capacity: float 
     container_space_length: float
     container_space_breadth: float
     container_space_height: float
@@ -119,9 +131,9 @@ class Driver:
     pan: str
     aadhar: str
     dl_number: str
-    dl_for_vehicle_types: List[int]  # List of vehicle type IDs the driver is authorized to operate
+    dl_for_vehicle_types: List[int] 
     Available : bool
-    rating: Optional[float] = None  # Optional rating for the vehicle operator
+    rating: Optional[float] = None 
 
 
 @dataclass
@@ -158,17 +170,19 @@ class AvailableDriver:
     longitude: float
     city_id: str
     vehicle_id: str
-    operators_id: str
+    company_id : int
     is_available: bool
     max_delivery_radius: float
     pending_orders_count: int
-    availability_time: Optional[datetime] = None  # Time when the driver is next available
+    availability_time: Optional[datetime] = None  
 
 @dataclass
 class Request:
     Request_id: str
     Customer_id : str
-    operators_id: str
+    company_id : int
+    operator_id: int
+    store_id: int
     Delivery_latitude: float
     Delivery_longitude: float
     Delivery_city_id: int
@@ -179,10 +193,10 @@ class Request:
 
 @dataclass
 class ActiveOrder:
-    current_status: str  # e.g., "Delivered", "Dispatched", "Out for Delivery"
+    current_status: str  
     last_updated: datetime
-    tracking_url: Optional[str] = None  # URL for tracking the order, if available
-    delivery_window: Optional[str] = None  # e.g., "9 AM - 12 PM"
+    tracking_url: Optional[str] = None  
+    delivery_window: Optional[str] = None 
 
 @dataclass
 class vehicle_operator:
@@ -197,7 +211,7 @@ class vehicle_operator:
 class Inventory:
     id: int
     List_of_items: List[int]
-    number_of_items_per_type: List[int]  # Fix the type hint here
+    number_of_items_per_type: List[int]  
     total_number_of_items: int
     store_id: int
     operator_id: int

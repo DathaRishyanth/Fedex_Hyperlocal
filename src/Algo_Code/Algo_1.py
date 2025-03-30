@@ -3,7 +3,13 @@ import numpy as np
 import sys
 import os
 from math import sqrt, radians, sin, cos, atan2
+from typing import List, Optional,Tuple
+from datetime import datetime
 from dataclasses import dataclass
+
+path = os.path.abspath(os.path.join(os.path.dirname(__file__), '..', 'Data_Generation_Code'))
+sys.path.append(path)
+
 
 @dataclass
 class AvailableDriver:
@@ -13,11 +19,11 @@ class AvailableDriver:
     longitude: float
     city_id: str
     vehicle_id: str
-    operators_id: str
+    company_id : int
     is_available: bool
     max_delivery_radius: float
     pending_orders_count: int
-    availability_time: None  # Time when the driver is next available
+    availability_time: Optional[datetime] = None 
 
 RADIUS_OF_EARTH = 6371  # Radius of the Earth in kilometers
 
@@ -100,41 +106,58 @@ class KDTree:
         closest_lon = max(min_lon, min(lon, max_lon))
 
         # Calculate the distance from the point to this closest point
-        return sqrt((lat - closest_lat) ** 2 + (lon - closest_lon) ** 2)
+        return self.distance(point, (closest_lat, closest_lon))
 
-    def nearest_neighbor(self, Q, T, cd, best, best_dist, BB):
+    def nearest_neighbor(self, Q, T, cd, best, best_dist, BB, company_id):
         """Find the nearest neighbor to the query point Q in the KD-Tree T."""
         if T is None or self.point_to_rect_distance(Q, BB) > best_dist:
             return best, best_dist  # Return the current best if bounding box is too far
-
+        
         # Calculate the distance from Q to the current node's point
-        dist = self.distance(Q, T.point)
+        dist = self.distance(Q, T.point[:2])  # Pass only latitude and longitude
+
         
         # Update best point and distance if a better point is found
-        if dist < best_dist and available_drivers[T.driver_id - 1].is_available:
+        if dist < best_dist and available_drivers[T.driver_id - 1].is_available and available_drivers[T.driver_id - 1].company_id == company_id:
             best = T
             best_dist = dist
-
+        
         # Determine the next dimension (cd) to explore
         next_cd = (cd + 1) % len(Q)
 
         # Visit the subtrees in the most promising order
         if Q[cd] < T.point[cd]:
             # Explore left subtree first
-            best, best_dist = self.nearest_neighbor(Q, T.left, next_cd, best, best_dist, BB.trim_left(cd, T.point))
-            best, best_dist = self.nearest_neighbor(Q, T.right, next_cd, best, best_dist, BB.trim_right(cd, T.point))
+            best, best_dist = self.nearest_neighbor(Q, T.left, next_cd, best, best_dist, BB.trim_left(cd, T.point), company_id)
+            best, best_dist = self.nearest_neighbor(Q, T.right, next_cd, best, best_dist, BB.trim_right(cd, T.point), company_id)
         else:
             # Explore right subtree first
-            best, best_dist = self.nearest_neighbor(Q, T.right, next_cd, best, best_dist, BB.trim_right(cd, T.point))
-            best, best_dist = self.nearest_neighbor(Q, T.left, next_cd, best, best_dist, BB.trim_left(cd, T.point))
+            best, best_dist = self.nearest_neighbor(Q, T.right, next_cd, best, best_dist, BB.trim_right(cd, T.point),company_id)
+        best, best_dist = self.nearest_neighbor(Q, T.left, next_cd, best, best_dist, BB.trim_left(cd, T.point), company_id)
 
         return best, best_dist
 
-# Loop through each instance
+# Function to find the nearest store to the driver
+def find_nearest_store(driver_location, stores):
+    """Find the nearest store to the driver's location."""
+    nearest_store = None
+    min_store_distance = float('inf')
+    
+    for store in stores:
+        store_location = (store['location_latitude'], store['location_longitude'])
+        distance_to_store = kd_tree.distance(driver_location, store_location)
+        
+        if distance_to_store < min_store_distance:
+            nearest_store = store
+            min_store_distance = distance_to_store
+    
+    return nearest_store, min_store_distance
+
+
 for instance in range(1, 4):
     try:
         available_drivers = []
-        available_drivers_df = pd.read_csv(f"quick_commerce/Data/Generated_datasets_and_input_instance/Instance_{instance}/Generated_data/available_drivers.csv")
+        available_drivers_df = pd.read_csv(f"../../Data/Generated_datasets_and_input_instance/Instance_{instance}/Generated_data/available_drivers.csv")
         for index, row in available_drivers_df.iterrows():
             available_drivers.append(
                 AvailableDriver(
@@ -144,21 +167,21 @@ for instance in range(1, 4):
                     row["longitude"],
                     row["city_id"],
                     row["vehicle_id"],
-                    row["operators_id"],
+                    row["company_id"],
                     row["is_available"],
                     row["max_delivery_radius"],
                     row["pending_orders_count"],
                     row["availability_time"]
                 )
             )
-        requests = pd.read_csv(f"quick_commerce/Data/Generated_datasets_and_input_instance/Instance_{instance}/Generated_data/requests.csv")
+        requests = pd.read_csv(f"../../Data/Generated_datasets_and_input_instance/Instance_{instance}/Generated_data/requests.csv")
     except FileNotFoundError as e:
         print(f"Error: {e}")
-        continue  # Skip to the next instance if there's an error
+        continue  
 
-    # Check if necessary columns exist in both CSVs
-    required_columns_drivers = ['city_id', 'latitude', 'longitude', 'driver_id']
-    required_columns_requests = ['Delivery_latitude', 'Delivery_longitude', 'Delivery_city_id', 'Request_id']
+    
+    required_columns_drivers = ['city_id', 'latitude', 'longitude', 'driver_id',"company_id"]
+    required_columns_requests = ['Delivery_latitude', 'Delivery_longitude', 'Delivery_city_id', 'Request_id',"company_id","store_id"]
 
     if not all(column in available_drivers_df.columns for column in required_columns_drivers):
         print(f"Error: Required columns {required_columns_drivers} not found in available_drivers.csv for instance {instance}")
@@ -172,36 +195,65 @@ for instance in range(1, 4):
     city_kd_trees = {}
 
     for city_id, group in available_drivers_df.groupby('city_id'):
-        driver_locations_with_ids = [(tuple([row['latitude'], row['longitude']]), row['driver_id']) for _, row in group.iterrows() if row['is_available']]
-        if driver_locations_with_ids:
-            city_kd_trees[city_id] = KDTree(driver_locations_with_ids)
+        # i should only assign the drivers who belong to the company that the request belongs to
+        drivers = group[['latitude', 'longitude', 'driver_id',"company_id"]].values
+        driver_ids = group['driver_id'].values
+        driver_ids = group['driver_id'].values
+        driver_company_ids = group['company_id'].values
+        driver_points_with_ids = [(tuple(driver), driver_id) for driver, driver_id in zip(drivers, driver_ids)]
+        kd_tree = KDTree(driver_points_with_ids)
+        city_kd_trees[city_id] = kd_tree
+
+
+        
 
     assignments = []
 
+    # Load the stores data
+    stores_df = pd.read_csv(f"../../Data/Generated_datasets_and_input_instance/Instance_{instance}/Generated_data/stores.csv")
+    stores = stores_df.to_dict('records')  # Convert stores dataframe to a list of dictionaries for easy access
+
+    # Iterate through each request
     # Iterate through each request
     for _, request in requests.iterrows():
-        request_location = (request['Delivery_latitude'], request['Delivery_longitude'])
+        # Store location is fixed for each request
+        store_id = request['store_id']
+        store = next((s for s in stores if s['store_id'] == store_id), None)
+
+        if store is None:
+            print(f"No store found with id {store_id} for instance {instance}")
+            continue  # Skip if no store found
+
+        store_location = (store['location_latitude'], store['location_longitude'])
         city_id = request['Delivery_city_id']
 
-        
         # Find the KD-Tree for the request's city
         kd_tree = city_kd_trees.get(city_id)
-        
+
         if kd_tree is None or kd_tree.root is None:
             print(f"No drivers available in city with id {city_id} for instance {instance}")
             continue  # No drivers available in this city
 
         # Initialize bounding box for nearest neighbor search
-        bounding_box = Rect((request['Delivery_latitude'] - 0.1, request['Delivery_longitude'] - 0.1),
-                            (request['Delivery_latitude'] + 0.1, request['Delivery_longitude'] + 0.1))
+        bounding_box = Rect((store['location_latitude'] - 0.1, store['location_longitude'] - 0.1),
+                            (store['location_latitude'] + 0.1, store['location_longitude'] + 0.1))
 
-        # Find the nearest driver
-        best_driver_node, best_distance = kd_tree.nearest_neighbor(request_location, kd_tree.root, 0, None, float('inf'), bounding_box)
+        # Find the nearest driver to the store
+        best_driver_node, best_distance = kd_tree.nearest_neighbor(store_location, kd_tree.root, 0, None, float('inf'), bounding_box, request['company_id'])
 
         if best_driver_node:
             best_driver = available_drivers[best_driver_node.driver_id - 1]
+            driver_location = (best_driver.latitude, best_driver.longitude)
+            
             # Assign driver to the request and mark as unavailable
             best_driver.is_available = False
+
+            # Calculate the distance from the store to the request location
+            distance_store_to_request = kd_tree.distance(store_location, (request['Delivery_latitude'], request['Delivery_longitude']))
+
+            # Calculate the total distance (driver to store, then store to delivery location)
+            total_distance = best_distance + distance_store_to_request
+
             assignments.append({
                 "Request_id": request['Request_id'],
                 "Assigned_driver_id": best_driver.driver_id,
@@ -209,11 +261,20 @@ for instance in range(1, 4):
                 "Assigned_Driver_longitude": best_driver.longitude,
                 "Request_latitude": request['Delivery_latitude'],
                 "Request_longitude": request['Delivery_longitude'],
-                "Distance": best_distance
+                "Assigned_store_id": store['store_id'],
+                "Store_latitude": store['location_latitude'],
+                "Store_longitude": store['location_longitude'],
+                "Distance_from_driver_to_store": best_distance,
+                "Distance_store_to_customer": distance_store_to_request,
+                "Total_distance": total_distance
             })
 
     # Save assignments to a CSV file
     assignments_df = pd.DataFrame(assignments)
-    assignments_df.to_csv(f"quick_commerce/Algo_Output/Instance_{instance}/assignments.csv", index=False)
+    assignments_df.sort_values(by='Total_distance', inplace=True)
+    if not os.path.exists(f"Algo_Output/Algo_1/Instance_{instance}"):
+        os.makedirs(f"Algo_Output/Algo_1/Instance_{instance}")
+    assignments_df.to_csv(f"Algo_Output/Algo_1/Instance_{instance}/assignments.csv", index=False)
 
     print(f"Assignments for Instance {instance} saved to assignments.csv")
+

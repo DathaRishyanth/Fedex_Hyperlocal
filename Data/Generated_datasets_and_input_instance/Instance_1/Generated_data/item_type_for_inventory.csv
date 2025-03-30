@@ -1,11 +1,6 @@
 item_id,name,item_type,weight,dimensions,special_handling_requirements
-1,Item_1,Food,9.48,"(0.94, 0.48, 0.4)",Fragile
-2,Item_2,Furniture,2.05,"(0.9, 0.84, 0.83)",Fragile
-3,Item_3,Food,8.3,"(0.99, 0.82, 0.98)",Fragile
-4,Item_4,Clothing,8.17,"(0.86, 0.61, 0.51)",None
-5,Item_5,Clothing,9.93,"(0.9, 0.66, 0.86)",Hazardous
-6,Item_6,Clothing,4.66,"(0.41, 0.94, 0.21)",Perishable
-7,Item_7,Electronics,1.23,"(0.28, 0.54, 0.11)",Hazardous
-8,Item_8,Books,0.51,"(0.16, 0.54, 0.45)",Fragile
-9,Item_9,Electronics,4.22,"(0.26, 0.74, 0.25)",None
-10,Item_10,Clothing,3.63,"(0.81, 0.12, 0.14)",None
+1,Item_1,Books,3.79,"(0.48, 0.54, 0.4)",None
+2,Item_2,Clothing,2.6,"(0.36, 0.21, 0.28)",Hazardous
+3,Item_3,Electronics,3.97,"(0.98, 0.49, 0.7)",Fragile
+4,Item_4,Books,0.71,"(0.24, 0.15, 0.43)",Perishable
+5,Item_5,Clothing,5.79,"(0.35, 0.23, 0.87)",None

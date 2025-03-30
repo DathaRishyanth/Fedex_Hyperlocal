@@ -1,0 +1,11 @@
+company_id,name,contact_email,contact_phone,contact_person_name,registered_name,registered_address,Max_number_of_orders_each_vehicle_can_take,operates_in,start_time,end_time,list_of_operators
+1,Company_1,help@company1.com,+91-9099641944,Person_1,Registered_Company_1,Address_1,1,"[7, 14, 12, 9, 4, 5, 23, 24, 8, 10]",2024-11-04 09:00:00,2024-11-04 21:00:00,"[1, 2, 3, 4, 5, 6, 7, 8, 9, 10]"
+2,Company_2,help@company2.com,+91-9785882185,Person_2,Registered_Company_2,Address_2,1,"[13, 20, 14, 17, 5, 12, 11, 10, 24, 1]",2024-11-04 09:00:00,2024-11-04 21:00:00,"[1, 2, 3, 4, 5, 6, 7, 8, 9, 10]"
+3,Company_3,help@company3.com,+91-9570813888,Person_3,Registered_Company_3,Address_3,1,"[23, 22, 6, 11, 13, 18, 7, 24, 20, 2]",2024-11-04 09:00:00,2024-11-04 21:00:00,"[1, 2, 3, 4, 5, 6, 7, 8, 9, 10]"
+4,Company_4,help@company4.com,+91-9034473489,Person_4,Registered_Company_4,Address_4,1,"[11, 7, 14, 23, 9, 19, 12, 10, 13, 25]",2024-11-04 09:00:00,2024-11-04 21:00:00,"[1, 2, 3, 4, 5, 6, 7, 8, 9, 10]"
+5,Company_5,help@company5.com,+91-9346224960,Person_5,Registered_Company_5,Address_5,1,"[1, 12, 6, 14, 13, 25, 3, 10, 20, 19]",2024-11-04 09:00:00,2024-11-04 21:00:00,"[1, 2, 3, 4, 5, 6, 7, 8, 9, 10]"
+6,Company_6,help@company6.com,+91-9657700355,Person_6,Registered_Company_6,Address_6,1,"[20, 16, 15, 12, 4, 13, 3, 5, 17, 22]",2024-11-04 09:00:00,2024-11-04 21:00:00,"[1, 2, 3, 4, 5, 6, 7, 8, 9, 10]"
+7,Company_7,help@company7.com,+91-9514248229,Person_7,Registered_Company_7,Address_7,1,"[16, 20, 12, 6, 19, 24, 14, 17, 4, 10]",2024-11-04 09:00:00,2024-11-04 21:00:00,"[1, 2, 3, 4, 5, 6, 7, 8, 9, 10]"
+8,Company_8,help@company8.com,+91-9005314636,Person_8,Registered_Company_8,Address_8,1,"[19, 2, 1, 15, 23, 18, 3, 25, 9, 14]",2024-11-04 09:00:00,2024-11-04 21:00:00,"[1, 2, 3, 4, 5, 6, 7, 8, 9, 10]"
+9,Company_9,help@company9.com,+91-9988255538,Person_9,Registered_Company_9,Address_9,1,"[3, 13, 5, 10, 12, 8, 25, 21, 15, 1]",2024-11-04 09:00:00,2024-11-04 21:00:00,"[1, 2, 3, 4, 5, 6, 7, 8, 9, 10]"
+10,Company_10,help@company10.com,+91-9499993199,Person_10,Registered_Company_10,Address_10,1,"[19, 2, 6, 23, 11, 15, 5, 22, 20, 8]",2024-11-04 09:00:00,2024-11-04 21:00:00,"[1, 2, 3, 4, 5, 6, 7, 8, 9, 10]"

@@ -1,0 +1,11 @@
+company_id,name,contact_email,contact_phone,contact_person_name,registered_name,registered_address,Max_number_of_orders_each_vehicle_can_take,operates_in,start_time,end_time,list_of_operators
+1,Company_1,help@company1.com,+91-9220277951,Person_1,Registered_Company_1,Address_1,1,"[6, 3, 7, 24, 15, 20, 12, 11, 14, 23]",2024-11-04 09:00:00,2024-11-04 21:00:00,"[1, 2, 3, 4, 5, 6, 7, 8, 9, 10]"
+2,Company_2,help@company2.com,+91-9124361042,Person_2,Registered_Company_2,Address_2,1,"[7, 14, 18, 4, 3, 23, 1, 10, 20, 16]",2024-11-04 09:00:00,2024-11-04 21:00:00,"[1, 2, 3, 4, 5, 6, 7, 8, 9, 10]"
+3,Company_3,help@company3.com,+91-9174636066,Person_3,Registered_Company_3,Address_3,1,"[14, 4, 23, 2, 9, 22, 6, 18, 3, 25]",2024-11-04 09:00:00,2024-11-04 21:00:00,"[1, 2, 3, 4, 5, 6, 7, 8, 9, 10]"
+4,Company_4,help@company4.com,+91-9394680264,Person_4,Registered_Company_4,Address_4,1,"[5, 1, 2, 11, 14, 18, 9, 25, 10, 15]",2024-11-04 09:00:00,2024-11-04 21:00:00,"[1, 2, 3, 4, 5, 6, 7, 8, 9, 10]"
+5,Company_5,help@company5.com,+91-9759710414,Person_5,Registered_Company_5,Address_5,1,"[17, 10, 9, 24, 18, 15, 3, 5, 2, 7]",2024-11-04 09:00:00,2024-11-04 21:00:00,"[1, 2, 3, 4, 5, 6, 7, 8, 9, 10]"
+6,Company_6,help@company6.com,+91-9103359402,Person_6,Registered_Company_6,Address_6,1,"[21, 2, 10, 7, 15, 6, 5, 3, 14, 19]",2024-11-04 09:00:00,2024-11-04 21:00:00,"[1, 2, 3, 4, 5, 6, 7, 8, 9, 10]"
+7,Company_7,help@company7.com,+91-9857292178,Person_7,Registered_Company_7,Address_7,1,"[5, 7, 6, 9, 14, 15, 17, 20, 16, 24]",2024-11-04 09:00:00,2024-11-04 21:00:00,"[1, 2, 3, 4, 5, 6, 7, 8, 9, 10]"
+8,Company_8,help@company8.com,+91-9900489219,Person_8,Registered_Company_8,Address_8,1,"[23, 3, 6, 1, 19, 9, 12, 7, 20, 22]",2024-11-04 09:00:00,2024-11-04 21:00:00,"[1, 2, 3, 4, 5, 6, 7, 8, 9, 10]"
+9,Company_9,help@company9.com,+91-9346394631,Person_9,Registered_Company_9,Address_9,1,"[24, 3, 15, 6, 12, 4, 11, 17, 25, 9]",2024-11-04 09:00:00,2024-11-04 21:00:00,"[1, 2, 3, 4, 5, 6, 7, 8, 9, 10]"
+10,Company_10,help@company10.com,+91-9078203827,Person_10,Registered_Company_10,Address_10,1,"[7, 9, 18, 20, 16, 17, 24, 13, 5, 4]",2024-11-04 09:00:00,2024-11-04 21:00:00,"[1, 2, 3, 4, 5, 6, 7, 8, 9, 10]"

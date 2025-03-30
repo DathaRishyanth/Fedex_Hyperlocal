@@ -1,11 +1,6 @@
 vehicle_operator_id,Name,PAN,Aadhar,City,Address,Rating
-1,vehicle_operator_1,ABCDE7129F,3537 4769 2439,Ahmedabad,Address_1,1.11
-2,vehicle_operator_2,ABCDE2674F,9226 9798 4960,Ajmer,Address_2,4.87
-3,vehicle_operator_3,ABCDE6138F,2633 1016 9732,Allahabad,Address_3,1.57
-4,vehicle_operator_4,ABCDE5811F,1408 2091 4665,Ahmadnagar,Address_4,2.33
-5,vehicle_operator_5,ABCDE9123F,2651 1471 9490,Agartala,Address_5,3.24
-6,vehicle_operator_6,ABCDE9302F,6297 1167 8917,Barddhaman,Address_6,1.41
-7,vehicle_operator_7,ABCDE1019F,5937 6823 6408,Barddhaman,Address_7,4.79
-8,vehicle_operator_8,ABCDE1067F,8311 4027 3633,Abohar,Address_8,4.87
-9,vehicle_operator_9,ABCDE3390F,8155 5692 1082,Alipurduar,Address_9,3.29
-10,vehicle_operator_10,ABCDE1146F,8134 5901 8222,Aurangabad,Address_10,4.1
+1,vehicle_operator_1,ABCDE1884F,3487 3501 4819,Aurangabad,Address_1,3.22
+2,vehicle_operator_2,ABCDE8464F,1182 3361 4283,Ajmer,Address_2,2.84
+3,vehicle_operator_3,ABCDE9890F,6024 4139 5619,Barddhaman,Address_3,4.33
+4,vehicle_operator_4,ABCDE1005F,1516 7212 2324,Alappuzha,Address_4,2.74
+5,vehicle_operator_5,ABCDE5888F,3494 6494 5073,Akola,Address_5,4.96

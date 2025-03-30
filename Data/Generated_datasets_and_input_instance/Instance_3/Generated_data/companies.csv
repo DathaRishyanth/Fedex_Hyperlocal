@@ -1,0 +1,11 @@
+company_id,name,contact_email,contact_phone,contact_person_name,registered_name,registered_address,Max_number_of_orders_each_vehicle_can_take,operates_in,start_time,end_time,list_of_operators
+1,Company_1,help@company1.com,+91-9811341985,Person_1,Registered_Company_1,Address_1,1,"[1, 20, 25, 18, 17, 10, 6, 15, 23, 22]",2024-11-04 09:00:00,2024-11-04 21:00:00,"[1, 2, 3, 4, 5, 6, 7, 8, 9, 10]"
+2,Company_2,help@company2.com,+91-9864318901,Person_2,Registered_Company_2,Address_2,1,"[18, 7, 25, 11, 3, 13, 6, 24, 9, 12]",2024-11-04 09:00:00,2024-11-04 21:00:00,"[1, 2, 3, 4, 5, 6, 7, 8, 9, 10]"
+3,Company_3,help@company3.com,+91-9698808214,Person_3,Registered_Company_3,Address_3,1,"[14, 19, 18, 3, 25, 17, 20, 16, 13, 7]",2024-11-04 09:00:00,2024-11-04 21:00:00,"[1, 2, 3, 4, 5, 6, 7, 8, 9, 10]"
+4,Company_4,help@company4.com,+91-9967482697,Person_4,Registered_Company_4,Address_4,1,"[13, 12, 14, 17, 10, 19, 23, 25, 11, 7]",2024-11-04 09:00:00,2024-11-04 21:00:00,"[1, 2, 3, 4, 5, 6, 7, 8, 9, 10]"
+5,Company_5,help@company5.com,+91-9106040724,Person_5,Registered_Company_5,Address_5,1,"[21, 13, 14, 6, 7, 2, 24, 15, 5, 11]",2024-11-04 09:00:00,2024-11-04 21:00:00,"[1, 2, 3, 4, 5, 6, 7, 8, 9, 10]"
+6,Company_6,help@company6.com,+91-9753200719,Person_6,Registered_Company_6,Address_6,1,"[6, 17, 16, 11, 19, 7, 14, 4, 18, 10]",2024-11-04 09:00:00,2024-11-04 21:00:00,"[1, 2, 3, 4, 5, 6, 7, 8, 9, 10]"
+7,Company_7,help@company7.com,+91-9059637283,Person_7,Registered_Company_7,Address_7,1,"[5, 8, 10, 11, 13, 24, 25, 22, 4, 17]",2024-11-04 09:00:00,2024-11-04 21:00:00,"[1, 2, 3, 4, 5, 6, 7, 8, 9, 10]"
+8,Company_8,help@company8.com,+91-9452521974,Person_8,Registered_Company_8,Address_8,1,"[6, 22, 14, 3, 24, 8, 2, 5, 12, 25]",2024-11-04 09:00:00,2024-11-04 21:00:00,"[1, 2, 3, 4, 5, 6, 7, 8, 9, 10]"
+9,Company_9,help@company9.com,+91-9093700516,Person_9,Registered_Company_9,Address_9,1,"[6, 4, 1, 16, 19, 15, 7, 9, 5, 21]",2024-11-04 09:00:00,2024-11-04 21:00:00,"[1, 2, 3, 4, 5, 6, 7, 8, 9, 10]"
+10,Company_10,help@company10.com,+91-9869511341,Person_10,Registered_Company_10,Address_10,1,"[18, 25, 6, 17, 1, 16, 10, 8, 11, 9]",2024-11-04 09:00:00,2024-11-04 21:00:00,"[1, 2, 3, 4, 5, 6, 7, 8, 9, 10]"
